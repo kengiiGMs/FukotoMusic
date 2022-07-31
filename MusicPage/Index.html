@@ -12,7 +12,7 @@
 	<link
 		href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;1,100;1,300;1,400;1,500&display=swap"
 		rel="stylesheet">
-	<title>Hello, world!</title>
+	<title>Inicio</title>
 	<style>
 		* {
 			font-family: 'Roboto', sans-serif;
@@ -52,11 +52,51 @@
 			text-align: center;
 			color: white;
 		}
+
+		#linkMenu {
+			font-size: 130%;
+			color: rgba(199, 21, 134, 0.651);
+			transition: 0.3s;
+		}
+
+		#linkMenu:hover {
+			color: mediumvioletred;
+		}
+
+		#vLinkMenu {
+			text-align: center;
+			margin-bottom: 20px;
+			text-decoration: none;
+			color: rgba(199, 21, 134, 0.651);
+			transition: 0.3s;
+		}
+
+		#vLinkMenu:hover {
+			color: mediumvioletred;
+
+		}
+
+		.purple {
+			color: mediumvioletred;
+			border-color: mediumvioletred;
+		}
+
+		.purple:hover {
+			background-color: mediumvioletred;
+			color: white;
+		}
+
+		.form-control {
+			border-color: mediumvioletred;
+		}
+
+		.form-control:focus {
+			box-shadow: 0 0 1em mediumvioletred;
+			border-color: mediumvioletred;
+		}
 	</style>
 </head>
 <!-- Teste -->
-
-
 
 
 <!-- FimTeste -->
@@ -64,7 +104,7 @@
 <body>
 	<div class="container-fluid">
 		<div class="row">
-			<div class="col-lg-4" style="background-color: black;">
+			<div class="col-lg-4">
 				<nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
 					<div class="container-fluid">
 						<button class="navbar-toggler" type="button" data-bs-toggle="offcanvas"
@@ -76,7 +116,8 @@
 							<div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar"
 								aria-labelledby="offcanvasNavbarLabel">
 								<div class="offcanvas-header">
-									<h5 class="offcanvas-title" id="offcanvasNavbarLabel">Menu</h5>
+									<h5 class="offcanvas-title" id="offcanvasNavbarLabel">
+										Menu</h5>
 									<button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
 										aria-label="Close"></button>
 								</div>
@@ -85,18 +126,17 @@
 										<div class="col">
 											<div class="row">
 												<form class="d-flex">
-													<input class="form-control me-2" type="search" placeholder="Search"
-														aria-label="Search">
-													<button class="btn btn-outline-success"
-														type="submit">Search</button>
+													<input class="form-control me-2" type="search"
+														placeholder="Precisa de Ajuda?" aria-label="Search">
+													<button class="btn btn-outline purple" type="submit">Buscar</button>
 												</form>
 												<div class="text-center">
 													<img src="imagens/emilia.jpg" alt="Perfil"
-														style="margin: 20px 0 10px; max-width: 90%; border-radius: 100%; border: 3px; border-style:solid; border-color: aqua;">
+														style="margin: 20px 0 10px; max-width: 90%; border-radius: 100%; border: 3px; border-style:solid; border-color: mediumvioletred">
 												</div>
 												<p style="text-align: center; font-size: 20px; margin: 0; ">NaomiDxD
 												</p>
-												<a href="#" style="text-align: center; margin-bottom: 20px;">Ver
+												<a href="#" id="vLinkMenu">Ver
 													Perfil</a>
 											</div>
 											<div class="row">
@@ -106,38 +146,43 @@
 														<li class="nav-item" style="padding: 1%;">
 															<a class="nav-link"
 																href="https://getbootstrap.com/docs/5.1/examples/"
-																style="font-size: 130%;"><i class="bi bi-house-door"
+																id="linkMenu"><i class="bi bi-house-door"
 																	style="padding-right: 5px;"></i>Inicio</a>
 														</li>
 														<li class="nav-item" style="padding: 1%;">
-															<a class="nav-link" href="#" style="font-size: 130%;"><i
+															<a class="nav-link" href="#" id="linkMenu"><i
 																	class="bi bi-file-earmark-text"
 																	style="padding-right: 5px;"></i>Novidades</a>
 														</li>
 														<li class="nav-item" style="padding: 1%;">
-															<a class="nav-link" href="#" style="font-size: 130%;"><i
+															<a class="nav-link" href="#" id="linkMenu"><i
 																	class="bi bi-music-note-list"
 																	style="padding-right: 5px;"></i>Playlist</a>
 														</li>
 														<li class="nav-item" style="padding: 1%;">
-															<a class="nav-link" href="#" style="font-size: 130%;"><i
+															<a class="nav-link" href="#" id="linkMenu"><i
 																	class="bi bi-heart"
 																	style="padding-right: 5px;"></i>Favoritas</a>
 														</li>
 														<li class="nav-item" style="padding: 1%;">
-															<a class="nav-link" href="#" style="font-size: 130%;"><i
+															<a class="nav-link" href="#" id="linkMenu"><i
 																	class="bi bi-boombox"
 																	style="padding-right: 5px;"></i>Rádio</a>
 														</li>
 														<li class="nav-item" style="padding: 1%;">
-															<a class="nav-link" href="#" style="font-size: 130%;"><i
+															<a class="nav-link" href="#" id="linkMenu"><i
 																	class="bi bi-clock-history"
 																	style="padding-right: 5px;"></i>Histórico</a>
 														</li>
 														<li class="nav-item" style="padding: 1%;">
-															<a class="nav-link" href="#" style="font-size: 130%;"><i
+															<a class="nav-link" href="#" id="linkMenu"><i
 																	class="bi bi-gear"
 																	style="padding-right: 5px;"></i>Configurações</a>
+														</li>
+														<li class="nav-item" style="padding: 1%;">
+															<a class="nav-link" href="#" id="linkMenu"><i
+																	class="bi bi-box-arrow-left"
+																	style="padding-right: 5px;"></i>Sair</a>
 														</li>
 													</ul>
 												</div>
@@ -151,50 +196,54 @@
 				</nav>
 			</div><!-- FimMenuLateral -->
 
-
-			<div class="col-lg-8" style="background-color: indigo;">
+			<div class="col-lg-8" style="background-image: linear-gradient(to bottom right, purple, red);">
 				<div class="row">
-					<div class="d-none d-lg-block">
-						<nav class="navbar navbar-light bg-light">
-							<div class="container-fluid">
-								<div class="row m-auto">
-									<form class="d-flex">
-										<input class="form-control" type="search"
-											placeholder="Digite aqui o nome do Artista,Playlist ou Música"
-											aria-label="Search" size="90%"
-											style="font-size: 90%; text-align: center;" />
-										<button class="btn btn-outline-success" type="submit"
-											style="margin-left: 10px;">Buscar</button>
-									</form>
+					<div class="container-fluid" style="padding: 0; margin: 0;">
+						<div class="d-none d-lg-block">
+							<nav class="navbar navbar-light bg-light">
+								<div class="container-fluid">
+									<div class="row m-auto">
+										<form class="d-flex">
+											<input class="form-control" type="search"
+												placeholder="Digite aqui o nome do Artista, Playlist ou Música"
+												aria-label="Search" size="90%"
+												style="font-size: 90%; text-align: center;" />
+											<button class="btn btn-outline purple" type="submit"
+												style="margin-left: 10px;">Buscar</button>
+										</form>
+									</div>
 								</div>
-							</div>
-						</nav>
+							</nav>
+						</div>
 					</div>
 				</div><!-- FimPesquisa -->
-				<div class="row">
-					<div class="conjunto">
-						<div class="col">
-							<img class="imagens" src="imagens/lisaCAPA.jpg" alt="Lisa - Crossing Field">
-							<h3>Lisa</h3>
-							<p class="sub">Crossing Field</p>
-						</div>
-						<div class="col">
-							<img class="imagens" src="imagens/officialHigeDandismCAPA.jpg"
-								alt="Official Hige Dandism - Cry Baby">
-						</div>
-						<div class="col">
-							<img class="imagens" src="imagens/yoasobiCAPA.jpg" alt="Yoasobi - Racing into the Night">
-						</div>
-						<div class="col">
-							<img class="imagens" src="imagens/gooseHouseCAPA.jpg" alt="GooseHouse - Hikaru Nara">
-						</div>
-						<div class="col">
-							<img class="imagens" src="imagens/makiOtsukiCAPA.jpg" alt="Maki Otsuki - Memories">
-						</div>
-						<div class="col">
-							<img class="imagens" src="imagens/reoNaCAPA.jpg" alt="ReoNA - Nai Nai">
-						</div>
+				<div class="container">
+					<div class="row">
+						<div class="conjunto">
+							<div class="col">
+								<img class="imagens" src="imagens/lisaCAPA.jpg" alt="Lisa - Crossing Field">
+								<h3>Lisa</h3>
+								<p class="sub">Crossing Field</p>
+							</div>
+							<div class="col">
+								<img class="imagens" src="imagens/officialHigeDandismCAPA.jpg"
+									alt="Official Hige Dandism - Cry Baby">
+							</div>
+							<div class="col">
+								<img class="imagens" src="imagens/yoasobiCAPA.jpg"
+									alt="Yoasobi - Racing into the Night">
+							</div>
+							<div class="col">
+								<img class="imagens" src="imagens/gooseHouseCAPA.jpg" alt="GooseHouse - Hikaru Nara">
+							</div>
+							<div class="col">
+								<img class="imagens" src="imagens/makiOtsukiCAPA.jpg" alt="Maki Otsuki - Memories">
+							</div>
+							<div class="col">
+								<img class="imagens" src="imagens/reoNaCAPA.jpg" alt="ReoNA - Nai Nai">
+							</div>
 
+						</div>
 					</div>
 				</div>
 			</div><!-- FimBarraPesquisa -->
