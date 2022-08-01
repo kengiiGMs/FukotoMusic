@@ -76,12 +76,26 @@
 		}
 
 		h6 {
+			font-size: 140%;
+			;
 			color: white;
 			margin: 20px 20px 0 20px;
 		}
 
 		@import "https://unpkg.com/open-props";
 		@import "https://unpkg.com/open-props/normalize.min.css";
+
+		.imagens {
+			transition: transform 2s, filter 1.5s ease-in-out;
+			transform-origin: center center;
+			filter: brightness(70%);
+			border-radius: 5px;
+		}
+
+		.imagens:hover {
+			filter: brightness(100%);
+			transform: scale(1.1);
+		}
 
 		.media-scroller {
 			--spacer: 1rem;
