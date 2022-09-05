@@ -9,163 +9,13 @@
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link rel="icon" type="image/png" href="imagens/page.png" />
 	<link
 		href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;1,100;1,300;1,400;1,500&display=swap"
 		rel="stylesheet">
+	<link rel="stylesheet" href="css/style.css">
 	<title>Inicio</title>
-	<style>
-		* {
-			font-family: 'Roboto', sans-serif;
-			margin: 0;
-			padding: 0;
-		}
-
-		h3 {
-			text-align: center;
-			color: white;
-			font-size: 1.2em;
-			margin-top: 10px;
-		}
-
-		.sub {
-			text-align: center;
-			color: white;
-			font-size: 1em;
-		}
-
-		#linkMenu {
-			font-size: 130%;
-			color: rgba(199, 21, 134, 0.651);
-			transition: 0.3s;
-		}
-
-		#linkMenu:hover {
-			color: mediumvioletred;
-		}
-
-		#vLinkMenu {
-			text-align: center;
-			margin-bottom: 20px;
-			text-decoration: none;
-			color: rgba(199, 21, 134, 0.651);
-			transition: 0.3s;
-		}
-
-		#vLinkMenu:hover {
-			color: mediumvioletred;
-
-		}
-
-		.purple {
-			color: mediumvioletred;
-			border-color: mediumvioletred;
-		}
-
-		.purple:hover {
-			background-color: mediumvioletred;
-			color: white;
-		}
-
-		.form-control {
-			border-color: mediumvioletred;
-		}
-
-		.form-control:focus {
-			box-shadow: 0 0 1em mediumvioletred;
-			border-color: mediumvioletred;
-		}
-
-		h6 {
-			font-size: 140%;
-			;
-			color: white;
-			margin: 20px 20px 0 20px;
-		}
-
-		@import "https://unpkg.com/open-props";
-		@import "https://unpkg.com/open-props/normalize.min.css";
-
-		.imagens {
-			transition: transform 2s, filter 1.5s ease-in-out;
-			transform-origin: center center;
-			filter: brightness(70%);
-			border-radius: 5px;
-		}
-
-		.imagens:hover {
-			filter: brightness(100%);
-			transform: scale(1.1);
-		}
-
-		.media-scroller {
-			--spacer: 1rem;
-			display: grid;
-			gap: var(--spacer);
-			grid-auto-flow: column;
-			grid-auto-columns: 35%;
-
-			padding: 0 var(--spacer) var(--spacer);
-
-			overflow-x: auto;
-			overscroll-behavior-inline: contain;
-		}
-
-		#containerF {
-			inline-size: min(110% - 0.5em, 50em);
-			margin-inline: auto;
-		}
-
-		.flow {
-			display: grid;
-			gap: var(--spacer);
-		}
-
-		.media-element {
-			display: grid;
-			grid-template-rows: min-content;
-			gap: var(--size-2);
-			padding: var(--spacer);
-			background: var(--surface-2);
-			border-radius: var(--radius-2);
-			box-shadow: var(--shadow-2);
-
-		}
-
-		.media-element>img {
-			width: 100%;
-			aspect-ratio: 10 / 10;
-			object-fit: cover;
-		}
-
-		.snaps-inline {
-			scroll-snap-type: inline mandatory;
-			scroll-padding-inline: var(--spacer);
-		}
-
-		.snaps-inline>* {
-			scroll-snap-align: start;
-		}
-
-		.vertical-scroll::-webkit-scrollbar {
-			height: 7px;
-			width: 9px;
-		}
-
-		.vertical-scroll::-webkit-scrollbar-track {
-			border-radius: 10px;
-			background: #ff0055;
-		}
-
-		.vertical-scroll::-webkit-scrollbar-thumb {
-			border-radius: 0;
-			background: rgb(202, 6, 55);
-		}
-	</style>
 </head>
-<!-- Teste -->
-
-
-<!-- FimTeste -->
 
 <body>
 	<div class="container-fluid">
@@ -261,7 +111,6 @@
 					</div>
 				</nav>
 			</div><!-- FimMenuLateral -->
-
 			<div class="col-lg-8" style="background-image: linear-gradient(to bottom right, purple, red);">
 				<div class="row">
 					<div class="container-fluid" style="padding: 0; margin: 0;">
@@ -289,14 +138,14 @@
 						<div class="media-scroller snaps-inline vertical-scroll">
 							<div class="col">
 								<div class="media-element">
-									<img class="imagens" src="imagens/lisaCAPA.jpg" alt="Lisa - Crossing Field">
+									<img class="imagensF" src="imagens/lisaCAPA.jpg" alt="Lisa - Crossing Field">
 									<h3>Lisa</h3>
 									<p class="sub">Crossing Field</p>
 								</div>
 							</div>
 							<div class="col">
 								<div class="media-element">
-									<img class="imagens" src="imagens/officialHigeDandismCAPA.jpg"
+									<img class="imagensF" src="imagens/officialHigeDandismCAPA.jpg"
 										alt="Official Hige Dandism - Cry Baby">
 									<h3>Official Hige Dandism</h3>
 									<p class="sub"> Cry Baby</p>
@@ -304,25 +153,25 @@
 							</div>
 							<div class="col">
 								<div class="media-element">
-									<img class="imagens" src="imagens/yoasobiCAPA.jpg"
+									<img class="imagensF" src="imagens/yoasobiCAPA.jpg"
 										alt="Yoasobi - Racing into the Night">
 									<h3>Yoasobi</h3>
 									<p class="sub">Racing into the Night</p>
 								</div>
 							</div>
 							<div class="media-element">
-								<img class="imagens" src="imagens/makiOtsukiCAPA.jpg" alt="Maki Otsuki - Memories">
+								<img class="imagensF" src="imagens/makiOtsukiCAPA.jpg" alt="Maki Otsuki - Memories">
 								<h3>Maki Otsuki</h3>
 								<p class="sub"> Memories</p>
 							</div>
 							<div class="media-element">
-								<img class="imagens" src="imagens/reoNaCAPA.jpg" alt="ReoNA - Nai Nai">
+								<img class="imagensF" src="imagens/reoNaCAPA.jpg" alt="ReoNA - Nai Nai">
 								<h3>ReoNA</h3>
 								<p class="sub">Nai Nai</p>
 							</div>
 							<div class="col">
 								<div class="media-element">
-									<img class="imagens" src="imagens/gooseHouseCAPA.jpg"
+									<img class="imagensF" src="imagens/gooseHouseCAPA.jpg"
 										alt="GooseHouse - Hikaru Nara">
 									<h3>GooseHouse</h3>
 									<p class="sub">Hikaru Nara</p>
@@ -331,8 +180,40 @@
 						</div>
 					</div>
 				</div>
-			</div><!-- FimBarraPesquisa -->
+				<div class="container">
+					<div class="row">
+						<div class="col" style="overflow-y: auto; height:500px; margin-top: 40px;">
+							<div class="container" id="containerS">
+								<p class="subS1">1</p>
+								<img class="imagensS" src="imagens/ikimono-gakariCAPA.jpg">
+							</div>
+							<div class="container" id="containerS">
+								<p class="subS1">1</p>
+								<img class="imagensS" src="imagens/aimerCAPA.jpg">
+							</div>
+							<div class="container" id="containerS">
+								<p class="subS1">1</p>
+								<img class="imagensS" src="imagens/halkaCAPA.jpg">
+							</div>
+							<div class="container" id="containerS">
+								<p class="subS1">1</p>
+								<img class="imagensS" src="imagens/miuraJamCAPA.jpg">
+							</div>
+							<div class="container" id="containerS">
+								<p class="subS1">1</p>
+								<img class="imagensS" src="imagens/radwimpsCAPA.jpg">
+							</div>
+							<div class="container" id="containerS">
+								<p class="subS1">1</p>
+								<img class="imagensS" src="imagens/yoshikiCAPA.png">
+							</div>
+						</div>
+						<div class="col">
 
+						</div>
+					</div>
+				</div>
+			</div><!-- FimBarraPesquisa -->
 		</div><!-- Fim RowPrincipal -->
 	</div><!-- FimContainerPrincipal -->
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
