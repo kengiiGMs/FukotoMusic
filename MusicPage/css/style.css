@@ -11,7 +11,7 @@ h3 {
 	margin-top: 10px;
 }
 
-.sub {
+.subTituloFav {
 	text-align: center;
 	color: white;
 	font-size: 1em;
@@ -151,25 +151,81 @@ h6 {
 /* Carrousel Favoritas */
 
 /* Imagens SubCarrousel Vertical */
-
-.subS1 {
-	display: inline-flex;
-	margin: 3px;
-	padding: 3px;
-	border: 2px solid red;
-	color: white;
+#scrollToc::-webkit-scrollbar-thumb {
+	border-radius: 0;
+	background: #ff0055;
 }
 
-.subS {
-	display: inline;
+#scrollToc::-webkit-scrollbar-track {
+	border-radius: 10px;
+	background: white;
+}
+
+#scrollToc::-webkit-scrollbar {
+	height: 7px;
+	width: 9px;
+}
+
+.subNum {
+	margin: 3px;
+	padding: 3px;
+	color: whitesmoke;
+	text-decoration: none;
+	transition: 0.4s;
 }
 
 .imagensS {
 	width: 6rem;
+	margin: 6px;
+	margin-left: 30px;
+	border: 1px solid white;
+	transition: 0.4s;
 }
 
 #containerS {
-	border: 2px solid rgb(255, 255, 255);
+	border: 2px solid whitesmoke;
 	border-radius: 20px;
 	margin-bottom: 20px;
+	transition: 0.4s;
 }
+
+.TituloToc {
+	display: inline-flex;
+	margin: 3px;
+	padding: 3px;
+	color: whitesmoke;
+	text-align: center;
+	transition: 0.4s;
+	font-size: 130%;
+}
+
+.subTituloToc {
+	display: inline-block;
+	margin: 3px;
+	padding: 3px;
+	color: whitesmoke;
+	text-align: center;
+	transition: 0.4s;
+	font-size: 95%;
+}
+
+/* Efeitos Hover */
+.linkToc:hover .subNum {
+	color: #ff0055;
+}
+.linkToc:hover .TituloToc {
+	color: #ff0055;
+}
+.linkToc:hover .subTituloToc {
+	color: #ff0055;
+}
+
+.linkToc:hover .imagensS {
+	border-color: #ff0055;
+}
+
+.linkToc:hover #containerS {
+	border-color: #ff0055;
+}
+/* Efeitos Hover */
+/* Imagens SubCarrousel Vertical */
