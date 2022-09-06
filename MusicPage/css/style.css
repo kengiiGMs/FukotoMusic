@@ -4,7 +4,7 @@
 	padding: 0;
 }
 
-h3 {
+h2 {
 	text-align: center;
 	color: white;
 	font-size: 1.2em;
@@ -150,7 +150,7 @@ h6 {
 
 /* Carrousel Favoritas */
 
-/* Imagens SubCarrousel Vertical */
+/* SubCarrousel Vertical */
 #scrollToc::-webkit-scrollbar-thumb {
 	border-radius: 0;
 	background: #ff0055;
@@ -228,4 +228,19 @@ h6 {
 	border-color: #ff0055;
 }
 /* Efeitos Hover */
-/* Imagens SubCarrousel Vertical */
+/* SubCarrousel Vertical */
+
+/* Artistas M-Procurados*/
+.imagensA {
+	width: 6rem;
+	margin: 5px;
+	border: 1px solid #ff0055;
+	transition: 0.4s;
+	border-radius: 100px;
+}
+.TituloArt {
+	color: white;
+	font-size: 140%;
+}
+
+/* Artistas M-Procurados*/
