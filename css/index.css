@@ -8,6 +8,41 @@ body {
 	background-size: cover;
 }
 
+h2 {
+	color: white;
+	text-align: center;
+	font-size: 25px;
+	padding: 15px;
+}
+
+/* Links */
+
+.linkPags {
+	text-decoration: none;
+	color: white;
+	text-align: center;
+}
+
+.linkPags:hover {
+	color: rgb(144, 25, 77);
+}
+
+/* Links */
+
+/* inputs */
+
+#senha_login:focus {
+	box-shadow: 0 0 1em rgb(255, 121, 213);
+	border-color: rgb(185, 10, 101);
+}
+
+#nome_login:focus {
+	box-shadow: 0 0 1em rgb(255, 121, 213);
+	border-color: rgb(185, 10, 101);
+}
+
+/* inputs */
+
 #login {
 	background-color: rgba(255, 0, 102, 0.263);
 	backdrop-filter: blur(5px);
@@ -18,12 +53,12 @@ body {
 	background-color: rgb(208, 16, 99);
 	padding: 20px;
 	border-radius: 8px;
+	text-align: center;
 }
 
 #baseLogin {
-	min-height: 100%; /* Fallback for browsers do NOT support vh unit */
-	min-height: 100vh; /* These two lines are counted as one :-)       */
-
+	min-height: 100%;
+	min-height: 100vh;
 	display: flex;
 	align-items: center;
 }
@@ -41,11 +76,19 @@ body {
 
 .purple:focus {
 	box-shadow: 0 0 1em mediumvioletred;
-	border-color: mediumvioletred;
+	border-color: white;
 }
 /* Button */
 
 .linkLogin {
 	color: whitesmoke;
 	text-decoration: none;
+}
+
+hr.loginHr {
+	border: 1px solid white;
+}
+
+.linksRecNew {
+	border: 1px solid mediumvioletred;
 }

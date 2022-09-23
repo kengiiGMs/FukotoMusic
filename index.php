@@ -21,27 +21,60 @@
     <div id="login">
         <div class="container">
             <div id="baseLogin">
-                <div class="col-8 m-auto" id="formLogin">
-                    <form method="POST" action="crud/login/logar.php" autocomplete="off">
-                        <h2 style="text-align:center; font-size:25px; padding:15px; color:white">
-                            LOGIN</h2>
-                        <div class="form-floating mb-3 mt-3">
-                            <input type="text" class="form-control" id="nome_login" name='nome_login' required
-                                placeholder="Usuario">
-                            <label>Usuario</label>
+                <div class="col-12 m-auto" id="formLogin">
+                    <div class="col-4 d-inline-block" style="margin:20px">
+
+                        <div class="container">
+                            <h2>
+                                Ainda não Possui uma Conta?
+                            </h2>
+                            <a href="page/conta/criarConta.php" class="linkPags">
+                                <p>
+                                    Crie uma Agora Mesmo
+                                </p>
+                            </a>
                         </div>
-                        <div class="form-floating mb-3 mt-3">
-                            <input type="password" class="form-control" id="senha_login" name='senha_login' required
-                                placeholder="Senha">
-                            <label>Senha</label>
+
+                        <hr class="loginHr">
+
+                        <div class="container">
+                            <h2>
+                                Esqueceu sua Senha?
+                            </h2>
+                            <a href="page/conta/esqueciMinhaSenha.php" class="linkPags">
+                                <p>
+                                    Recupere ela Agora Mesmo
+                                </p>
+                            </a>
                         </div>
 
+                    </div>
+                    <div class="col-6 d-inline-block" style="margin:20px">
 
-                        <button type="submit" class="btn btn-outline purple btn-lg w-100">Entrar</button>
-                        <button type="button" class="btn btn-outline purple btn-lg w-100"
-                            onclick="location.href='page/home.php'" style="margin-top:5px">Entrar</button>
+                        <div class="container text-align:center">
 
-                    </form>
+                            <form method="POST" action="crud/login/logar.php" autocomplete="off">
+                                <h2 style="text-align:center; font-size:25px; padding:15px; color:white">
+                                    LOGIN</h2>
+
+                                <div class="form-floating mb-3 mt-3">
+                                    <input type="text" class="form-control" id="nome_login" name='nome_login' required
+                                        placeholder="Usuario">
+                                    <label>Usuario</label>
+                                </div>
+
+                                <div class="form-floating mb-3 mt-3">
+                                    <input type="password" class="form-control" id="senha_login" name='senha_login'
+                                        required placeholder="Senha">
+                                    <label>Senha</label>
+                                </div>
+
+                                <button type="submit" class="btn btn-outline purple btn-lg w-100">Entrar</button>
+                            </form>
+
+                        </div>
+
+                    </div>
                 </div>
             </div>
         </div>
