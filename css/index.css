@@ -1,0 +1,51 @@
+body {
+	background-image: url("../assets/background/index1.jpg");
+	background-repeat: no-repeat;
+	background-position: center;
+	background-attachment: fixed;
+	height: 100%;
+	width: 100%;
+	background-size: cover;
+}
+
+#login {
+	background-color: rgba(255, 0, 102, 0.263);
+	backdrop-filter: blur(5px);
+	height: 100vh;
+	width: 100vw;
+}
+#formLogin {
+	background-color: rgb(208, 16, 99);
+	padding: 20px;
+	border-radius: 8px;
+}
+
+#baseLogin {
+	min-height: 100%; /* Fallback for browsers do NOT support vh unit */
+	min-height: 100vh; /* These two lines are counted as one :-)       */
+
+	display: flex;
+	align-items: center;
+}
+
+/* Button */
+.purple {
+	color: white;
+	border-color: whitesmoke;
+}
+
+.purple:hover {
+	background-color: white;
+	color: mediumvioletred;
+}
+
+.purple:focus {
+	box-shadow: 0 0 1em mediumvioletred;
+	border-color: mediumvioletred;
+}
+/* Button */
+
+.linkLogin {
+	color: whitesmoke;
+	text-decoration: none;
+}
