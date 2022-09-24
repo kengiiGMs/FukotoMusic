@@ -9,3 +9,5 @@ senha_usuario varchar(40) not null,
 foto varchar (20),
 imagem blob
 );
+
+select * from usuario;
