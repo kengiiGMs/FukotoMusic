@@ -1,3 +1,15 @@
+<?php
+
+      if(!isset($_SESSION)){
+            session_start();
+        }
+        if(isset($_SESSION['nome_login'])){
+            header("location: page/home.php");
+        }
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="pt-br">
 

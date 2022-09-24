@@ -1,3 +1,15 @@
+<?php
+
+      if(!isset($_SESSION)){
+            session_start();
+        }
+        if(!isset($_SESSION['nome_login'])){
+            header("location: ../index.php");
+        }
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -96,8 +108,8 @@
                                                                     style="padding-right: 5px;"></i>Configurações</a>
                                                         </li>
                                                         <li class="nav-item" style="padding: 1%;">
-                                                            <a class="nav-link" href="#" id="linkMenu"><i
-                                                                    class="bi bi-box-arrow-left"
+                                                            <a class="nav-link" href="../crud/logar/sair.php"
+                                                                id="linkMenu"><i class="bi bi-box-arrow-left"
                                                                     style="padding-right: 5px;"></i>Sair</a>
                                                         </li>
                                                     </ul>

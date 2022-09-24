@@ -1,3 +1,7 @@
+* {
+	font-family: "Roboto", sans-serif;
+}
+
 body {
 	background-image: url("../assets/background/index1.jpg");
 	background-repeat: no-repeat;
