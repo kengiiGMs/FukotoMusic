@@ -167,6 +167,21 @@
                                             aria-labelledby="pills-home-tab" tabindex="0">
                                             <h4 class="card-title"></h4>
                                             <h5 class="artist"></h5>
+                                            <div class="row">
+                                                <div class="col">
+                                                    <div class="container current-duration">00:00</div>
+                                                </div>
+                                                <div class="col-5">
+                                                    <input type="range" class="seekbar" step min="0" max="0"
+                                                        style="width:100%">
+                                                </div>
+                                                <div class="col">
+                                                    <div class="container total-duration">
+                                                        00:00
+                                                    </div>
+                                                </div>
+                                            </div>
+
                                         </div>
                                         <div class="tab-pane fade" id="pills-profile" role="tabpanel"
                                             aria-labelledby="pills-profile-tab" tabindex="0">
@@ -178,19 +193,32 @@
                                 </div>
                                 <hr>
                                 <div class="card-body">
-                                    <audio style="width:100%; max-width:600px;" controls></audio>
+                                    <button type="button" class="btn btn-outline purple">
+                                        <img src="../../assets/musicOptions/left.png" width="20px">
+                                    </button>
+                                    <button type="button" class="btn btn-outline purple" id="play-pause">
+                                        <img src="../../assets/musicOptions/play.png" width="20px">
+                                    </button>
+                                    <button type="button" class="btn btn-outline purple">
+                                        <img src="../../assets/musicOptions/right.png" width="20px">
+                                    </button>
+                                    <div class="row" style="text-align:center; padding-top:20px">
+                                        <div class="container">
+                                            <button href="" class="btn btn-outline purple">
+                                                <img src="../../assets/musicOptions/sound.png" width="20px">
+                                                <input type="range" class="vol-control" step min="0" max="100">
+                                            </button>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div><!-- Fim Favoritas -->
-
+                </div><!-- Fim Playlist -->
             </div><!-- Fim Conteúdo Principal -->
         </div><!-- Fim RowPrincipal -->
     </div><!-- FimContainerPrincipal -->
-    <script src="../../js/dataMusic.js"></script>
-    <script src="../../js/music.js"></script>
-    <script src="../../js/player.js"></script>
+    <script src="../../js/index.js" type="module"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
 
