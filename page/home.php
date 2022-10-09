@@ -9,7 +9,6 @@
 
 ?>
 
-
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -72,9 +71,8 @@
                                                     <ul class="nav flex-column position-relative "
                                                         style="text-align: justify;">
                                                         <li class="nav-item" style="padding: 1%;">
-                                                            <a class="nav-link"
-                                                                href="https://getbootstrap.com/docs/5.1/examples/"
-                                                                id="linkMenu"><i class="bi bi-house-door"
+                                                            <a class="nav-link" href="" id="linkMenu"><i
+                                                                    class="bi bi-house-door"
                                                                     style="padding-right: 5px;"></i>Inicio</a>
                                                         </li>
                                                         <li class="nav-item" style="padding: 1%;">
@@ -83,8 +81,8 @@
                                                                     style="padding-right: 5px;"></i>Novidades</a>
                                                         </li>
                                                         <li class="nav-item" style="padding: 1%;">
-                                                            <a class="nav-link" href="#" id="linkMenu"><i
-                                                                    class="bi bi-music-note-list"
+                                                            <a class="nav-link" href="playlist/musica.php"
+                                                                id="linkMenu"><i class="bi bi-music-note-list"
                                                                     style="padding-right: 5px;"></i>Playlist</a>
                                                         </li>
                                                         <li class="nav-item" style="padding: 1%;">

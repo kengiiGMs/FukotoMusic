@@ -244,3 +244,26 @@ h6 {
 }
 
 /* Artistas M-Procurados*/
+
+/* Playlist Music */
+h3 {
+	margin: 20px;
+	color: white;
+}
+
+.nav-fill .nav-link.active {
+	color: white;
+	background-image: linear-gradient(to bottom right, purple, red);
+	background-color: mediumvioletred;
+}
+
+.buttonSelect {
+	color: mediumvioletred;
+	background-image: linear-gradient(to bottom right, purple, red);
+}
+
+.buttonSelect:hover {
+	color: #ff0055;
+}
+
+/* Playlist Music */
