@@ -169,15 +169,15 @@
                                             <h5 class="artist"></h5>
                                             <div class="row">
                                                 <div class="col">
-                                                    <div class="container current-duration">00:00</div>
+                                                    <div class="container" id="current-duration">
+                                                    </div>
                                                 </div>
                                                 <div class="col-5">
-                                                    <input type="range" class="seekbar" step min="0" max="0"
+                                                    <input type="range" id="seekbar" step min="0" max="0"
                                                         style="width:100%">
                                                 </div>
                                                 <div class="col">
-                                                    <div class="container total-duration">
-                                                        00:00
+                                                    <div class="container" id="total-duration">
                                                     </div>
                                                 </div>
                                             </div>
@@ -197,17 +197,17 @@
                                         <img src="../../assets/musicOptions/left.png" width="20px">
                                     </button>
                                     <button type="button" class="btn btn-outline purple" id="play-pause">
-                                        <img src="../../assets/musicOptions/play.png" width="20px">
+                                        <img id="play-pause-image" width="20px">
                                     </button>
                                     <button type="button" class="btn btn-outline purple">
                                         <img src="../../assets/musicOptions/right.png" width="20px">
                                     </button>
                                     <div class="row" style="text-align:center; padding-top:20px">
                                         <div class="container">
-                                            <button href="" class="btn btn-outline purple">
-                                                <img src="../../assets/musicOptions/sound.png" width="20px">
-                                                <input type="range" class="vol-control" step min="0" max="100">
+                                            <button href="" class="btn btn-outline purple" id="muted">
+                                                <img id="muted-image" width="20px">
                                             </button>
+                                            <input type="range" id="volume-control" step min="0" max="100">
                                         </div>
                                     </div>
                                 </div>
