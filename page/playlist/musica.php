@@ -5,6 +5,8 @@
         }
         if(!isset($_SESSION['nome_login'])){
             header("location: ../../index.php");
+        }else{
+            $nomeUsuario = $_SESSION['nome_login'];
         }
 
 ?>
@@ -24,15 +26,17 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;1,100;1,300;1,400;1,500&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="../../css/home.css">
+    <link rel="stylesheet" href="../../css/style.css">
     <title>Playlist</title>
 </head>
 
 <body>
     <div class="container-fluid">
         <div class="row">
-            <div class="col-lg-4">
-                <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
+
+
+            <div class="col-lg-4 backgroundMenu">
+                <nav class="navbar navbar-expand-lg  bg-light sticky-top">
                     <div class="container-fluid">
                         <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas"
                             data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar"
@@ -43,11 +47,14 @@
                             <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar"
                                 aria-labelledby="offcanvasNavbarLabel">
                                 <div class="offcanvas-header">
-                                    <h5 class="offcanvas-title" id="offcanvasNavbarLabel">
-                                        Menu</h5>
+                                    <div class="container containerTituloMenu">
+                                        <H6 class="offcanvas-title" id="offcanvasNavbarLabel">
+                                            Menu</H6>
+                                    </div>
                                     <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
                                         aria-label="Close"></button>
                                 </div>
+
                                 <div class="offcanvas-body">
                                     <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
                                         <div class="col">
@@ -59,92 +66,98 @@
                                                 </form>
                                                 <div class="text-center">
                                                     <img src="../../assets/Perfil/emilia.jpg" alt="Perfil"
-                                                        style="margin: 20px 0 10px; max-width: 90%; border-radius: 100%; border: 3px; border-style:solid; border-color: mediumvioletred">
+                                                        class="imagemPerfil">
                                                 </div>
-                                                <p style="text-align: center; font-size: 20px; margin: 0; ">NaomiDxD
-                                                </p>
-                                                <a href="#" id="vLinkMenu">Ver
+                                                <?php echo"<p style='text-align: center; font-size: 20px; margin: 0;'> $nomeUsuario </p>"?>
+                                                <a href="#" class="linkVerPerfil">Ver
                                                     Perfil</a>
                                             </div>
+
                                             <div class="row">
                                                 <div class="col m-auto">
-                                                    <ul class="nav flex-column position-relative "
-                                                        style="text-align: justify;">
-                                                        <li class="nav-item" style="padding: 1%;">
-                                                            <a class="nav-link" href="../home.php" id="linkMenu"><i
-                                                                    class="bi bi-house-door"
-                                                                    style="padding-right: 5px;"></i>Inicio</a>
+                                                    <ul class="nav flex-column position-relative headerUL">
+                                                        <li class="nav-item">
+                                                            <a class="nav-link linkMenu" href="../home.php">
+                                                                <i class="bi bi-house-door"></i>Inicio
+                                                            </a>
                                                         </li>
-                                                        <li class="nav-item" style="padding: 1%;">
-                                                            <a class="nav-link" href="#" id="linkMenu"><i
-                                                                    class="bi bi-file-earmark-text"
-                                                                    style="padding-right: 5px;"></i>Novidades</a>
+                                                        <li class="nav-item">
+                                                            <a class="nav-link linkMenu" href="#">
+                                                                <i class="bi bi-file-earmark-text"></i>Novidades
+                                                            </a>
                                                         </li>
-                                                        <li class="nav-item" style="padding: 1%;">
-                                                            <a class="nav-link" href="playlist/musica.php"
-                                                                id="linkMenu"><i class="bi bi-music-note-list"
-                                                                    style="padding-right: 5px;"></i>Playlist</a>
+                                                        <li class="nav-item">
+                                                            <a class="nav-link linkMenu" href="playlist/musica.php">
+                                                                <i class="bi bi-music-note-list"></i>Playlist
+                                                            </a>
                                                         </li>
-                                                        <li class="nav-item" style="padding: 1%;">
-                                                            <a class="nav-link" href="#" id="linkMenu"><i
-                                                                    class="bi bi-heart"
-                                                                    style="padding-right: 5px;"></i>Favoritas</a>
+                                                        <li class="nav-item">
+                                                            <a class="nav-link linkMenu" href="#">
+                                                                <i class="bi bi-heart""></i>Favoritas
+                                                            </a>
                                                         </li>
-                                                        <li class="nav-item" style="padding: 1%;">
-                                                            <a class="nav-link" href="#" id="linkMenu"><i
-                                                                    class="bi bi-boombox"
-                                                                    style="padding-right: 5px;"></i>Rádio</a>
+                                                        <li class=" nav-item">
+                                                                    <a class="nav-link linkMenu" href="#">
+                                                                        <i class="bi bi-boombox"></i>Rádio
+                                                                    </a>
                                                         </li>
-                                                        <li class="nav-item" style="padding: 1%;">
-                                                            <a class="nav-link" href="#" id="linkMenu"><i
-                                                                    class="bi bi-clock-history"
-                                                                    style="padding-right: 5px;"></i>Histórico</a>
+                                                        <li class="nav-item">
+                                                            <a class="nav-link linkMenu" href="#"><i
+                                                                    class="bi bi-clock-history"></i>Histórico
+                                                            </a>
                                                         </li>
-                                                        <li class="nav-item" style="padding: 1%;">
-                                                            <a class="nav-link" href="#" id="linkMenu"><i
-                                                                    class="bi bi-gear"
-                                                                    style="padding-right: 5px;"></i>Configurações</a>
+                                                        <li class="nav-item">
+                                                            <a class="nav-link linkMenu" href="#"><i
+                                                                    class="bi bi-gear"></i>Configurações
+                                                            </a>
                                                         </li>
-                                                        <li class="nav-item" style="padding: 1%;">
-                                                            <a class="nav-link" href="../crud/logar/sair.php"
-                                                                id="linkMenu"><i class="bi bi-box-arrow-left"
-                                                                    style="padding-right: 5px;"></i>Sair</a>
+                                                        <li class="nav-item">
+                                                            <a class="nav-link linkMenu"
+                                                                href="../../crud/logar/sair.php"><i
+                                                                    class="bi bi-box-arrow-left"></i>Sair
+                                                            </a>
                                                         </li>
                                                     </ul>
                                                 </div>
                                             </div>
+
                                         </div>
                                     </ul>
                                 </div>
+
                             </div>
                         </div>
                     </div>
                 </nav>
-            </div><!-- FimMenuLateral -->
-            <div class="col-lg-8" style="background-image: linear-gradient(to bottom right, purple, red);">
+            </div>
+
+
+            <div class="col-lg-8 backgroundConteudoPrincipal">
+
+
                 <div class="row">
-                    <div class="container-fluid" style="padding: 0; margin: 0;">
+                    <div class="container-fluid barraDepesquisaPrincipal">
                         <div class="d-none d-lg-block">
                             <nav class="navbar navbar-light bg-light">
                                 <div class="container-fluid">
                                     <div class="row m-auto">
-                                        <form class="d-flex">
+                                        <form class="d-flex formbarraDePesquisa">
                                             <input class="form-control" type="search"
                                                 placeholder="Digite aqui o nome do Artista, Playlist ou Música"
-                                                aria-label="Search" size="90%"
-                                                style="font-size: 90%; text-align: center;" />
-                                            <button class="btn btn-outline purple" type="submit"
-                                                style="margin-left: 10px;">Buscar</button>
+                                                aria-label="Search" size="90%" />
+                                            <button class="btn btn-outline purple" type="submit">Buscar</button>
                                         </form>
                                     </div>
                                 </div>
                             </nav>
                         </div>
                     </div>
-                </div><!-- FimPesquisa -->
+                </div>
+
+
                 <div class="row">
                     <div class="container m-auto" style="text-align:center">
-                        <h3>Playlist</h3>
+                        <H3 class="titulosPlaylist">Playlist</H3>
                         <div class="container">
                             <div class="card text-center m-auto" style="width: 28rem;">
                                 <img class="card-img">
@@ -214,10 +227,14 @@
                             </div>
                         </div>
                     </div>
-                </div><!-- Fim Playlist -->
-            </div><!-- Fim Conteúdo Principal -->
-        </div><!-- Fim RowPrincipal -->
-    </div><!-- FimContainerPrincipal -->
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+
+
     <script src="../../js/PlayerMusic/index.js" type="module"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">

@@ -25,49 +25,44 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;1,100;1,300;1,400;1,500&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/style.css">
     <title>Login</title>
 </head>
 
-<body>
+<body id="bodyLogin">
     <div id="login">
         <div class="container">
             <div id="baseLogin">
                 <div class="col-12 m-auto" id="formLogin">
-                    <div class="col-4 d-inline-block" style="margin:20px">
+                    <div class="col-4 d-inline-block colunasIndex">
 
                         <div class="container">
-                            <h2>
+                            <h2 class="titulosIndex">
                                 Ainda não Possui uma Conta?
                             </h2>
-                            <a href="page/conta/criarConta.php" class="linkPags">
-                                <p>
-                                    Crie uma Agora Mesmo
-                                </p>
+                            <a href="page/conta/criarConta.php" class="linksIndex">
+                                Crie uma Agora Mesmo
                             </a>
                         </div>
 
-                        <hr class="loginHr">
+                        <hr class="indexHr">
 
                         <div class="container">
-                            <h2>
+                            <h2 class="titulosIndex">
                                 Esqueceu sua Senha?
                             </h2>
-                            <a href="page/conta/esqueciMinhaSenha.php" class="linkPags">
-                                <p>
-                                    Recupere ela Agora Mesmo
-                                </p>
+                            <a id="recuperarSenha" class="linksIndex manutencao">
+                                Recupere ela Agora Mesmo
                             </a>
                         </div>
 
                     </div>
-                    <div class="col-6 d-inline-block" style="margin:20px">
+                    <div class="col-6 d-inline-block colunasIndex">
 
                         <div class="container text-align:center">
 
                             <form method="POST" action="" autocomplete="off" onSubmit="efetuarLogin();" id="formEntrar">
-                                <h2 style="text-align:center; font-size:25px; padding:15px; color:white">
-                                    LOGIN</h2>
+                                <h2 class="titulosIndex">LOGIN</h2>
                                 <div class="form-floating mb-3 mt-3">
                                     <input type="text" class="form-control" id="nome_login" name='nome_login' required
                                         placeholder="Usuario">
@@ -78,7 +73,7 @@
                                         required placeholder="Senha">
                                     <label>Senha</label>
                                 </div>
-                                <button type="submit" class="btn btn-outline purple btn-lg w-100"
+                                <button type="submit" class="btn btn-outline whitePurple btn-lg w-100"
                                     value="cadastrar">Cadastrar</button>
                             </form>
 
@@ -90,11 +85,19 @@
         </div>
     </div>
 </body>
+
 <script src="js/Login/logar.js"></script>
 <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI="
     crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
+</script>
+<script>
+$(document).ready(function() {
+    $(document).on("click", "#recuperarSenha", function() {
+        alert("Está página ainda não está disponível");
+    });
+});
 </script>
 
 

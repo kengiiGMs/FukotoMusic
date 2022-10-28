@@ -8,23 +8,23 @@
         integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="icon" type="image/png" href="assets/IconePage/page.png" />
+    <link rel="preconnect" href="https://fonts...gstatic.com" crossorigin>
+    <link rel="icon" type="image/png" href="../../assets/IconePage/page.png" />
     <link
         href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;1,100;1,300;1,400;1,500&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="../../css/index.css">
+    <link rel="stylesheet" href="../../css/style.css">
     <title>Login</title>
 </head>
 
-<body>
-    <div id="login">
+<body id="bodyCriarConta">
+    <div id="criarConta">
         <div class="container">
-            <div id="baseLogin">
-                <div class="col-8 m-auto" id="formLogin">
+            <div id="baseCriarConta">
+                <div class="col-8 m-auto" id="formCriarConta">
                     <form method="POST" action="" autocomplete="off" onSubmit="verificarCadastro();" id="formCadastro">
-                        <h2 style="text-align:center; font-size:25px; padding:15px; color:white">
-                            CADASTRE A SUA CONTA</h2>
+                        <h4>
+                            CADASTRE A SUA CONTA</h4>
                         <div class="form-floating mb-3 mt-3">
                             <input type="text" class="form-control" id="nome_login" name='nome_login' required
                                 placeholder="Usuario">
@@ -45,9 +45,9 @@
                                 name='confirma_senha' required placeholder="Confirme a sua senha">
                             <label>Confirme a sua senha</label>
                         </div>
-                        <button type="submit" class="btn btn-outline purple btn-lg w-100"
+                        <button type="submit" class="btn btn-outline whitePurple btn-lg w-100"
                             value="cadastrar">Cadastrar</button>
-                        <button type="button" class="btn btn-outline purple btn-lg w-100"
+                        <button type="button" class="btn btn-outline whitePurple btn-lg w-100"
                             onclick="location.href='../../index.php'" style="margin-top:5px">Voltar</button>
 
                     </form>

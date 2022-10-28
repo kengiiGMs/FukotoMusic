@@ -5,6 +5,8 @@
         }
         if(!isset($_SESSION['nome_login'])){
             header("location: ../index.php");
+        }else{
+            $nomeUsuario = $_SESSION['nome_login'];
         }
 
 ?>
@@ -24,33 +26,44 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;1,100;1,300;1,400;1,500&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="../css/home.css">
+    <link rel="stylesheet" href="../css/style.css">
     <title>Inicio</title>
 </head>
 
 <body>
+
     <div class="container-fluid">
+
         <div class="row">
-            <div class="col-lg-4">
-                <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
+
+
+            <div class="col-lg-4 backgroundMenu">
+                <nav class="navbar navbar-expand-lg bg-light sticky-top">
                     <div class="container-fluid">
+
                         <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas"
                             data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar"
                             aria-label="Toggle navigation">
                             <span class="navbar-toggler-icon"></span>
                         </button>
+
                         <div class="container-fluid">
                             <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar"
                                 aria-labelledby="offcanvasNavbarLabel">
+
                                 <div class="offcanvas-header">
-                                    <h5 class="offcanvas-title" id="offcanvasNavbarLabel">
-                                        Menu</h5>
+                                    <div class="container containerTituloMenu">
+                                        <H6 class="offcanvas-title" id="offcanvasNavbarLabel">
+                                            Menu</H6>
+                                    </div>
                                     <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
                                         aria-label="Close"></button>
                                 </div>
+
                                 <div class="offcanvas-body">
                                     <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
                                         <div class="col">
+
                                             <div class="row">
                                                 <form class="d-flex">
                                                     <input class="form-control me-2" type="search"
@@ -61,58 +74,51 @@
                                                     <img src="../assets/Perfil/emilia.jpg" alt="Perfil"
                                                         style="margin: 20px 0 10px; max-width: 90%; border-radius: 100%; border: 3px; border-style:solid; border-color: mediumvioletred">
                                                 </div>
-                                                <p style="text-align: center; font-size: 20px; margin: 0; ">NaomiDxD
-                                                </p>
-                                                <a href="#" id="vLinkMenu">Ver
+                                                <?php echo"<p style='text-align: center; font-size: 20px; margin: 0;'> $nomeUsuario </p>"?>
+                                                <a href="#" class="linkVerPerfil">Ver
                                                     Perfil</a>
                                             </div>
+
                                             <div class="row">
                                                 <div class="col m-auto">
-                                                    <ul class="nav flex-column position-relative "
-                                                        style="text-align: justify;">
-                                                        <li class="nav-item" style="padding: 1%;">
-                                                            <a class="nav-link" href="" id="linkMenu"><i
-                                                                    class="bi bi-house-door"
-                                                                    style="padding-right: 5px;"></i>Inicio</a>
+                                                    <ul class="nav flex-column position-relative headerUL">
+                                                        <li class="nav-item texte">
+                                                            <a class="nav-link linkMenu" href=""><i
+                                                                    class="bi bi-house-door"></i>Inicio</a>
                                                         </li>
-                                                        <li class="nav-item" style="padding: 1%;">
-                                                            <a class="nav-link" href="#" id="linkMenu"><i
-                                                                    class="bi bi-file-earmark-text"
-                                                                    style="padding-right: 5px;"></i>Novidades</a>
+                                                        <li class="nav-item">
+                                                            <a class="nav-link linkMenu" href="#"><i
+                                                                    class="bi bi-file-earmark-text"></i>Novidades</a>
                                                         </li>
-                                                        <li class="nav-item" style="padding: 1%;">
-                                                            <a class="nav-link" href="playlist/musica.php"
-                                                                id="linkMenu"><i class="bi bi-music-note-list"
-                                                                    style="padding-right: 5px;"></i>Playlist</a>
+                                                        <li class="nav-item">
+                                                            <a class="nav-link linkMenu" href="playlist/musica.php"><i
+                                                                    class="bi bi-music-note-list"></i>Playlist</a>
                                                         </li>
-                                                        <li class="nav-item" style="padding: 1%;">
-                                                            <a class="nav-link" href="#" id="linkMenu"><i
-                                                                    class="bi bi-heart"
-                                                                    style="padding-right: 5px;"></i>Favoritas</a>
+                                                        <li class="nav-item">
+                                                            <a class="nav-link linkMenu" href="#"><i
+                                                                    class="bi bi-heart"></i>Favoritas</a>
                                                         </li>
-                                                        <li class="nav-item" style="padding: 1%;">
-                                                            <a class="nav-link" href="#" id="linkMenu"><i
-                                                                    class="bi bi-boombox"
-                                                                    style="padding-right: 5px;"></i>Rádio</a>
+                                                        <li class="nav-item">
+                                                            <a class="nav-link linkMenu" href="#"><i
+                                                                    class="bi bi-boombox"></i>Rádio</a>
                                                         </li>
-                                                        <li class="nav-item" style="padding: 1%;">
-                                                            <a class="nav-link" href="#" id="linkMenu"><i
-                                                                    class="bi bi-clock-history"
-                                                                    style="padding-right: 5px;"></i>Histórico</a>
+                                                        <li class="nav-item">
+                                                            <a class="nav-link linkMenu" href="#"><i
+                                                                    class="bi bi-clock-history"></i>Histórico</a>
                                                         </li>
-                                                        <li class="nav-item" style="padding: 1%;">
-                                                            <a class="nav-link" href="#" id="linkMenu"><i
-                                                                    class="bi bi-gear"
-                                                                    style="padding-right: 5px;"></i>Configurações</a>
+                                                        <li class="nav-item">
+                                                            <a class="nav-link linkMenu" href="#"><i
+                                                                    class="bi bi-gear"></i>Configurações</a>
                                                         </li>
-                                                        <li class="nav-item" style="padding: 1%;">
-                                                            <a class="nav-link" href="../crud/logar/sair.php"
-                                                                id="linkMenu"><i class="bi bi-box-arrow-left"
-                                                                    style="padding-right: 5px;"></i>Sair</a>
+                                                        <li class="nav-item">
+                                                            <a class="nav-link linkMenu"
+                                                                href="../crud/logar/sair.php"><i
+                                                                    class="bi bi-box-arrow-left"></i>Sair</a>
                                                         </li>
                                                     </ul>
                                                 </div>
                                             </div>
+
                                         </div>
                                     </ul>
                                 </div>
@@ -120,203 +126,227 @@
                         </div>
                     </div>
                 </nav>
-            </div><!-- FimMenuLateral -->
-            <div class="col-lg-8" style="background-image: linear-gradient(to bottom right, purple, red);">
+            </div>
+
+
+            <div class="col-lg-8 backgroundConteudoPrincipal">
+
+
                 <div class="row">
-                    <div class="container-fluid" style="padding: 0; margin: 0;">
+                    <div class="container-fluid barraDepesquisaPrincipal">
                         <div class="d-none d-lg-block">
                             <nav class="navbar navbar-light bg-light">
                                 <div class="container-fluid">
                                     <div class="row m-auto">
-                                        <form class="d-flex">
+                                        <form class="d-flex formbarraDePesquisa">
                                             <input class="form-control" type="search"
                                                 placeholder="Digite aqui o nome do Artista, Playlist ou Música"
-                                                aria-label="Search" size="90%"
-                                                style="font-size: 90%; text-align: center;" />
-                                            <button class="btn btn-outline purple" type="submit"
-                                                style="margin-left: 10px;">Buscar</button>
+                                                aria-label="Search" size="90%" />
+                                            <button class="btn btn-outline purple" type="submit">Buscar</button>
                                         </form>
                                     </div>
                                 </div>
                             </nav>
                         </div>
                     </div>
-                </div><!-- FimPesquisa -->
+                </div>
+
+
                 <div class="row">
-                    <div class="container flow" id="containerF">
-                        <h6>Favoritas</h6>
+                    <div class="container flow" id="containerFavoritas">
+                        <H3 class="titulosHome">Favoritas</H3>
                         <div class="media-scroller snaps-inline vertical-scroll">
                             <div class="col">
                                 <div class="media-element">
-                                    <img class="imagensF" src="../assets/Favoritas/lisaCAPA.jpg"
+                                    <img class="imagensFavoritas" src="../assets/Favoritas/lisaCAPA.jpg"
                                         alt="Lisa - Crossing Field">
-                                    <h2>Lisa</h2>
-                                    <p class="subTituloFav">Crossing Field</p>
+                                    <h4 class="titulosFavoritas">Lisa</h4>
+                                    <p class="subTituloFavoritas">Crossing Field</p>
                                 </div>
                             </div>
                             <div class="col">
                                 <div class="media-element">
-                                    <img class="imagensF" src="../assets/Favoritas/officialHigeDandismCAPA.jpg"
+                                    <img class="imagensFavoritas" src="../assets/Favoritas/officialHigeDandismCAPA.jpg"
                                         alt="Official Hige Dandism - Cry Baby">
-                                    <h2>Official Hige Dandism</h2>
-                                    <p class="subTituloFav"> Cry Baby</p>
+                                    <h4 class="titulosFavoritas">Official Hige Dandism</h4>
+                                    <p class="subTituloFavoritas"> Cry Baby</p>
                                 </div>
                             </div>
                             <div class="col">
                                 <div class="media-element">
-                                    <img class="imagensF" src="../assets/Favoritas/yoasobiCAPA.jpg"
+                                    <img class="imagensFavoritas" src="../assets/Favoritas/yoasobiCAPA.jpg"
                                         alt="Yoasobi - Racing into the Night">
-                                    <h2>Yoasobi</h2>
-                                    <p class="subTituloFav">Racing into the Night</p>
+                                    <h4 class="titulosFavoritas">Yoasobi</h4>
+                                    <p class="subTituloFavoritas">Racing into the Night</p>
                                 </div>
                             </div>
                             <div class="media-element">
-                                <img class="imagensF" src="../assets/Favoritas/makiOtsukiCAPA.jpg"
+                                <img class="imagensFavoritas" src="../assets/Favoritas/makiOtsukiCAPA.jpg"
                                     alt="Maki Otsuki - Memories">
-                                <h2>Maki Otsuki</h2>
-                                <p class="subTituloFav"> Memories</p>
+                                <h4 class="titulosFavoritas">Maki Otsuki</h4>
+                                <p class="subTituloFavoritas"> Memories</p>
                             </div>
                             <div class="media-element">
-                                <img class="imagensF" src="../assets/Favoritas/reoNaCAPA.jpg" alt="ReoNA - Nai Nai">
-                                <h2>ReoNA</h2>
-                                <p class="subTituloFav">Nai Nai</p>
+                                <img class="imagensFavoritas" src="../assets/Favoritas/reoNaCAPA.jpg"
+                                    alt="ReoNA - Nai Nai">
+                                <h4 class="titulosFavoritas">ReoNA</h4>
+                                <p class="subTituloFavoritas">Nai Nai</p>
                             </div>
                             <div class="col">
                                 <div class="media-element">
-                                    <img class="imagensF" src="../assets/Favoritas/gooseHouseCAPA.jpg"
+                                    <img class="imagensFavoritas" src="../assets/Favoritas/gooseHouseCAPA.jpg"
                                         alt="GooseHouse - Hikaru Nara">
-                                    <h2>GooseHouse</h2>
-                                    <p class="subTituloFav">Hikaru Nara</p>
+                                    <h4 class="titulosFavoritas">GooseHouse</h4>
+                                    <p class="subTituloFavoritas">Hikaru Nara</p>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div><!-- Fim Favoritas -->
+                </div>
+
+
                 <div class="container">
+
+
                     <div class="container">
-                        <H6>Músicas mais Tocadas</H6>
+                        <H3 class="titulosHome">Músicas mais Tocadas</H3>
                     </div>
                     <div class="row">
-                        <div class="col col-sm-12 col-lg-6 col-12"
-                            style="overflow-y: auto; height:550px; margin: 20px 0 20px;" id="scrollToc">
-                            <a href="#" style="text-decoration: none;" class="linkToc">
-                                <div class="container" id="containerS">
-                                    <div class="col" style="display: flex; align-items: center;">
-                                        <p class="subNum">1</p>
-                                        <img class="imagensS" src="../assets/MTocadas/ikimono-gakariCAPA.jpg">
+                        <div class="col col-sm-12 col-lg-6 col-12 maisTocadas" id="scrollToc">
+                            <a href="#" class="linkTocadas">
+                                <div class="container containerMaisTocadas">
+                                    <div class="col colunaMaisTocadas">
+                                        <p class="posicaoMaisTocadas">1</p>
+                                        <img class="imagensMaisTocadas" src="../assets/MTocadas/ikimono-gakariCAPA.jpg">
                                         <div class="container-fluid" style="text-align:center;">
-                                            <h3 class="TituloToc">
+                                            <H4 class="TituloMaisTocadas">
                                                 <b>Ikimono Gakari</b>
-                                            </h3>
-                                            <p class="subTituloToc">Hotaru no Hikari</p>
+                                            </H4>
+                                            <p class="subTituloMaisTocadas">Hotaru no Hikari</p>
                                         </div>
                                     </div>
                                 </div>
                             </a>
-                            <a href="#" style="text-decoration: none;" class="linkToc">
-                                <div class="container" id="containerS">
-                                    <div class="col" style="display: flex; align-items: center;">
-                                        <p class="subNum">2</p>
-                                        <img class="imagensS" src="../assets/MTocadas/aimerCAPA.jpg">
+                            <a href="#" class="linkTocadas">
+                                <div class="container containerMaisTocadas">
+                                    <div class="col colunaMaisTocadas">
+                                        <p class="posicaoMaisTocadas">2</p>
+                                        <img class="imagensMaisTocadas" src="../assets/MTocadas/aimerCAPA.jpg">
                                         <div class="container-fluid" style="text-align:center;">
-                                            <h3 class="TituloToc">
+                                            <H4 class="TituloMaisTocadas">
                                                 <b>Aimer</b>
-                                            </h3>
-                                            <p class="subTituloToc">Spark Again</p>
+                                            </H4>
+                                            <p class="subTituloMaisTocadas">Spark Again</p>
                                         </div>
                                     </div>
                                 </div>
                             </a>
-                            <a href="#" style="text-decoration: none;" class="linkToc">
-                                <div class="container" id="containerS">
-                                    <div class="col" style="display: flex; align-items: center;">
-                                        <p class="subNum">3</p>
-                                        <img class="imagensS" src="../assets/MTocadas/yoasobiCAPA2.jpg">
+                            <a href="#" class="linkTocadas">
+                                <div class="container containerMaisTocadas">
+                                    <div class="col colunaMaisTocadas">
+                                        <p class="posicaoMaisTocadas">3</p>
+                                        <img class="imagensMaisTocadas" src="../assets/MTocadas/yoasobiCAPA2.jpg">
                                         <div class="container-fluid" style="text-align:center;">
-                                            <h3 class="TituloToc">
+                                            <H4 class="TituloMaisTocadas">
                                                 <b>Yoasobi</b>
-                                            </h3>
-                                            <p class="subTituloToc">Tabun</p>
+                                            </H4>
+                                            <p class="subTituloMaisTocadas">Tabun</p>
                                         </div>
                                     </div>
                                 </div>
                             </a>
-                            <a href="#" style="text-decoration: none;" class="linkToc">
-                                <div class="container" id="containerS">
-                                    <div class="col" style="display: flex; align-items: center;">
-                                        <p class="subNum">4</p>
-                                        <img class="imagensS" src="../assets/MTocadas/miuraJamCAPA.jpg">
+                            <a href="#" class="linkTocadas">
+                                <div class="container containerMaisTocadas">
+                                    <div class="col colunaMaisTocadas">
+                                        <p class="posicaoMaisTocadas">4</p>
+                                        <img class="imagensMaisTocadas" src="../assets/MTocadas/miuraJamCAPA.jpg">
                                         <div class="container-fluid" style="text-align:center;">
-                                            <h3 class="TituloToc">
+                                            <H4 class="TituloMaisTocadas">
                                                 <b>Aimer</b>
-                                            </h3>
-                                            <p class="subTituloToc">Zankyou Sanka</p>
+                                            </H4>
+                                            <p class="subTituloMaisTocadas">Zankyou Sanka</p>
                                         </div>
                                     </div>
                                 </div>
                             </a>
-                            <a href="#" style="text-decoration: none;" class="linkToc">
-                                <div class="container" id="containerS">
-                                    <div class="col" style="display: flex; align-items: center;">
-                                        <p class="subNum">5</p>
-                                        <img class="imagensS" src="../assets/MTocadas/radwimpsCAPA.jpg">
+                            <a href="#" class="linkTocadas">
+                                <div class="container containerMaisTocadas">
+                                    <div class="col colunaMaisTocadas">
+                                        <p class="posicaoMaisTocadas">5</p>
+                                        <img class="imagensMaisTocadas" src="../assets/MTocadas/radwimpsCAPA.jpg">
                                         <div class="container-fluid" style="text-align:center;">
-                                            <h3 class="TituloToc">
+                                            <H4 class="TituloMaisTocadas">
                                                 <b>Radwimps</b>
-                                            </h3>
-                                            <p class="subTituloToc">Sparkle</p>
+                                            </H4>
+                                            <p class="subTituloMaisTocadas">Sparkle</p>
                                         </div>
                                     </div>
                                 </div>
                             </a>
-                            <a href="#" style="text-decoration: none;" class="linkToc">
-                                <div class="container" id="containerS">
-                                    <div class="col" style="display: flex; align-items: center;">
-                                        <p class="subNum">6</p>
-                                        <img class="imagensS" src="../assets/MTocadas/yoshikiCAPA.png">
+                            <a href="#" class="linkTocadas">
+                                <div class="container containerMaisTocadas">
+                                    <div class="col colunaMaisTocadas">
+                                        <p class="posicaoMaisTocadas">6</p>
+                                        <img class="imagensMaisTocadas" src="../assets/MTocadas/yoshikiCAPA.png">
                                         <div class="container-fluid" style="text-align:center;">
-                                            <h3 class="TituloToc">
+                                            <H4 class="TituloMaisTocadas">
                                                 <b>Yoshiki</b>
-                                            </h3>
-                                            <p class="subTituloToc">Red Swan</p>
+                                            </H4>
+                                            <p class="subTituloMaisTocadas">Red Swan</p>
                                         </div>
                                     </div>
                                 </div>
                             </a>
                         </div>
+
+
                         <div class="col">
-                            <H6 style="text-align: center; margin: 2px 0 4px;">Artistas mais Pesquisados</H6>
-                            <div class="container" style="display: flex; align-items: center;">
-                                <p class="subNum">1</p>
-                                <img src="../assets/APesquisados/lisaPerfil.png" alt="" class="imagensA">
-                                <h4 class="TituloArt">Lisa</h4>
+                            <H3 class="titulosHome">Artistas mais Pesquisados</H3>
+
+                            <div class="container containerMaisPesquisados">
+                                <p class="posicaoMaisPesquisados">1</p>
+                                <img src="../assets/APesquisados/lisaPerfil.png" alt="" class="imagensMaisProcurados">
+                                <h4 class="TituloMaisProcurados">Lisa</h4>
                             </div>
-                            <div class="container" style="display: flex; align-items: center;">
-                                <p class="subNum">2</p>
-                                <img src="../assets/APesquisados/yoasobiPerfil.png" alt="" class="imagensA">
-                                <h4 class="TituloArt">Yoasobi</h4>
+
+                            <div class="container containerMaisPesquisados">
+                                <p class="posicaoMaisPesquisados">2</p>
+                                <img src="../assets/APesquisados/yoasobiPerfil.png" alt=""
+                                    class="imagensMaisProcurados">
+                                <h4 class="TituloMaisProcurados">Yoasobi</h4>
                             </div>
-                            <div class="container" style="display: flex; align-items: center;">
-                                <p class="subNum">3</p>
-                                <img src="../assets/APesquisados/reoNaPerfil.jpg" alt="" class="imagensA">
-                                <h4 class="TituloArt">ReoNa</h4>
+
+                            <div class="container containerMaisPesquisados">
+                                <p class="posicaoMaisPesquisados">3</p>
+                                <img src="../assets/APesquisados/reoNaPerfil.jpg" alt="" class="imagensMaisProcurados">
+                                <h4 class="TituloMaisProcurados">ReoNa</h4>
                             </div>
-                            <div class="container" style="display: flex; align-items: center;">
-                                <p class="subNum">4</p>
-                                <img src="../assets/APesquisados/AimerPerfil.jpg" alt="" class="imagensA">
-                                <h4 class="TituloArt">Aimer</h4>
+
+                            <div class="container containerMaisPesquisados">
+                                <p class="posicaoMaisPesquisados">4</p>
+                                <img src="../assets/APesquisados/AimerPerfil.jpg" alt="" class="imagensMaisProcurados">
+                                <h4 class="TituloMaisProcurados">Aimer</h4>
                             </div>
-                            <div class="container" style="display: flex; align-items: center;">
-                                <p class="subNum">5</p>
-                                <img src="../assets/APesquisados/kanaBoonPerfil.jpg" alt="" class="imagensA">
-                                <h4 class="TituloArt">Kana-Boon</h4>
+
+                            <div class="container containerMaisPesquisados">
+                                <p class="posicaoMaisPesquisados">5</p>
+                                <img src="../assets/APesquisados/kanaBoonPerfil.jpg" alt=""
+                                    class="imagensMaisProcurados">
+                                <h4 class="TituloMaisProcurados">Kana-Boon</h4>
                             </div>
-                        </div><!-- Fim conteúdo Artistas -->
-                    </div><!-- Fim Conteúdo Sub-Principal (ROW)-->
-                </div><!-- Fim Conteúdo Sub-Principal (CONTAINER)-->
-            </div><!-- Fim Conteúdo Principal -->
-        </div><!-- Fim RowPrincipal -->
-    </div><!-- FimContainerPrincipal -->
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+    </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
     </script>
