@@ -69,13 +69,13 @@
                                 <h2 style="text-align:center; font-size:25px; padding:15px; color:white">
                                     LOGIN</h2>
                                 <div class="form-floating mb-3 mt-3">
-                                    <input type="text" class="form-control nome_login" id="nome_login" name='nome_login'
-                                        required placeholder="Usuario">
+                                    <input type="text" class="form-control" id="nome_login" name='nome_login' required
+                                        placeholder="Usuario">
                                     <label>Usuario</label>
                                 </div>
                                 <div class="form-floating mb-3 mt-3">
-                                    <input type="password" class="form-control senha_login" id="senha_login"
-                                        name='senha_login' required placeholder="Senha">
+                                    <input type="password" class="form-control" id="senha_login" name='senha_login'
+                                        required placeholder="Senha">
                                     <label>Senha</label>
                                 </div>
                                 <button type="submit" class="btn btn-outline purple btn-lg w-100"
@@ -90,33 +90,12 @@
         </div>
     </div>
 </body>
+<script src="js/Login/logar.js"></script>
 <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI="
     crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
 </script>
-<script>
-function efetuarLogin() {
-    var nome_login = $(".nome_login").val();
-    var senha_login = $(".senha_login").val();
-    if (senha_login != "" && nome_login != "") {
-        $.ajax({
-            type: "POST",
-            url: "crud/logar/validarLogin.php",
-            data: $("#formEntrar").serialize(),
-            success: function(resultado) {
-                if (resultado == 0) {
-                    alert("Senha ou Usuário Incorretos");
-                } else if (resultado == 1) {
-                    window.location.href = "page/home.php";
-                } else {
-                    alert("ERRO SQL TENTE NOVAMENTE OU PEÇA AJUDA DOS ADMINISTRADORES");
-                }
-            }
-        });
-    }
 
-}
-</script>
 
 </html>
