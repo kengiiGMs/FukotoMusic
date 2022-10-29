@@ -22,6 +22,36 @@ export default {
 		this.isPlaying = false;
 		this.audio.pause();
 	},
+	togglePassMusic() {
+		this.currentPlay++;
+		this.passForcedPause();
+		if (this.currentPlay == this.audioData.length) {
+			this.restart();
+			this.togglePlayPause();
+		} else {
+			this.update();
+			this.togglePlayPause();
+		}
+	},
+	toggleBackMusic() {
+		this.passForcedPause();
+		if (this.currentPlay == 0) {
+			this.currentPlay = this.audioData.length - 1;
+			this.update();
+			this.togglePlayPause();
+		} else {
+			this.currentPlay--;
+			this.update();
+			this.togglePlayPause();
+		}
+	},
+	passForcedPause() {
+		if (this.isPlaying == true) {
+			this.pause();
+			this.playPauseImage.src = "../../assets/musicOptions/play.png";
+		}
+	},
+
 	togglePlayPause() {
 		if (this.isPlaying == true) {
 			this.pause();

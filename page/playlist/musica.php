@@ -17,8 +17,8 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -36,8 +36,9 @@
 
 
             <div class="col-lg-4 backgroundMenu">
-                <nav class="navbar navbar-expand-lg  bg-light sticky-top">
+                <nav class="navbar navbar-expand-lg bg-light sticky-top">
                     <div class="container-fluid">
+
                         <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas"
                             data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar"
                             aria-label="Toggle navigation">
@@ -206,13 +207,13 @@
                                 </div>
                                 <hr>
                                 <div class="card-body">
-                                    <button type="button" class="btn btn-outline purple">
+                                    <button type="button" class="btn btn-outline purple" id="back-music">
                                         <img src="../../assets/musicOptions/left.png" width="20px">
                                     </button>
                                     <button type="button" class="btn btn-outline purple" id="play-pause">
                                         <img id="play-pause-image" width="20px">
                                     </button>
-                                    <button type="button" class="btn btn-outline purple">
+                                    <button type="button" class="btn btn-outline purple" id="pass-music">
                                         <img src="../../assets/musicOptions/right.png" width="20px">
                                     </button>
                                     <div class="row" style="text-align:center; padding-top:20px">
@@ -236,9 +237,11 @@
 
 
     <script src="../../js/PlayerMusic/index.js" type="module"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
-
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+        integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js"
+        integrity="sha384-IDwe1+LCz02ROU9k972gdyvl+AESN10+x7tBKgc9I5HFtuNz0wWnPclzo6p9vxnk" crossorigin="anonymous">
     </script>
 </body>
 

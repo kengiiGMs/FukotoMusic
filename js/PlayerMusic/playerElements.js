@@ -14,6 +14,8 @@ export default {
 		this.seekBar = document.querySelector("#seekbar");
 		this.currentDuration = document.querySelector("#current-duration");
 		this.totalDuration = document.querySelector("#total-duration");
+		this.backMusic = document.querySelector("#back-music");
+		this.passMusic = document.querySelector("#pass-music");
 	},
 	createAudioElement(audio) {
 		this.audio = new Audio(audio);
@@ -29,5 +31,7 @@ export default {
 		this.seekBar.oninput = () => this.setSeek(this.seekBar.value);
 		this.seekBar.max = this.audio.duration;
 		this.totalDuration.innerText = secondsToMinutes(this.audio.duration);
+		this.backMusic.onclick = () => this.toggleBackMusic();
+		this.passMusic.onclick = () => this.togglePassMusic();
 	},
 };
