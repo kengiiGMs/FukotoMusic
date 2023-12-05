@@ -9,6 +9,7 @@ As seguintes Bibliotecas foram usadas na construção do projeto:
 - `Express`
 - `Ts-node-dev`
 - `Cors`
+- `Prisma`
     
 # Tecnologias 
 As seguintes Tecnologias foram usadas na construção do projeto:

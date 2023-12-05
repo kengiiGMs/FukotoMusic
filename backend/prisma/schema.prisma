@@ -1,0 +1,78 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        String     @id @default(uuid())
+  name      String
+  email     String
+  password  String
+  playlists Playlist[]
+
+  @@map("users")
+}
+
+model Singer {
+  id    String  @id @default(uuid())
+  name  String
+  music Music[]
+
+  @@map("singers")
+}
+
+model Album {
+  id    String  @id @default(uuid())
+  name  String
+  music Music[]
+
+  @@map("albums")
+}
+
+model Playlist {
+  id     String  @id @default(uuid())
+  name   String
+  public Boolean @default(false)
+
+  user    User   @relation(fields: [user_id], references: [id])
+  user_id String
+
+  musicPlaylist MusicPlaylist[]
+
+  @@map("playlists")
+}
+
+model Music {
+  id          String   @id @default(uuid())
+  name        String
+  releaseDate DateTime
+
+  singer    Singer @relation(fields: [singer_id], references: [id])
+  singer_id String
+
+  album    Album  @relation(fields: [album_id], references: [id])
+  album_id String
+
+  musicPlaylist MusicPlaylist[]
+
+  @@map("music")
+}
+
+model MusicPlaylist {
+  id String @id @default(uuid())
+
+  music    Music  @relation(fields: [music_id], references: [id])
+  music_id String
+
+  playlist    Playlist @relation(fields: [playlist_id], references: [id])
+  playlist_id String
+
+  @@map("musicPlaylists")
+}
