@@ -11,6 +11,8 @@ As seguintes Bibliotecas foram usadas na construção do projeto:
 - `Cors`
 - `Prisma`
 - `Bcryptjs`
+- `Jsonwebtoken`
+- `Dotenv`
     
 # Tecnologias 
 As seguintes Tecnologias foram usadas na construção do projeto:
