@@ -10,6 +10,7 @@ As seguintes Bibliotecas foram usadas na construção do projeto:
 - `Ts-node-dev`
 - `Cors`
 - `Prisma`
+- `Bcryptjs`
     
 # Tecnologias 
 As seguintes Tecnologias foram usadas na construção do projeto:
