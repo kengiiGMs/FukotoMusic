@@ -2,11 +2,12 @@ import prismaClient from "../../prisma";
 
 
 interface AlbumRequest {
-    name: string
+    name: string,
+    singer_id: string
 }
 
 class CreateAlbumService {
-    async execute({ name }: AlbumRequest) {
+    async execute({ name, singer_id }: AlbumRequest) {
         if (!name) {
             throw new Error("Name Incorrect")
         }
@@ -24,7 +25,7 @@ class CreateAlbumService {
         const album = await prismaClient.album.create({
             data: {
                 name: name,
-                singer_id: undefined
+                singer_id: singer_id
             }
         })
 

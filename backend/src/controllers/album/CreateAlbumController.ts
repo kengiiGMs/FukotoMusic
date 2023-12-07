@@ -3,11 +3,11 @@ import { CreateAlbumService } from "../../services/album/CreateAlbumService";
 
 class CreateAlbumController {
     async handle(req: Request, res: Response) {
-        const { name } = req.body;
+        const { name, singer_id } = req.body;
 
         const createAlbumService = new CreateAlbumService();
 
-        const album = await createAlbumService.execute({ name })
+        const album = await createAlbumService.execute({ name, singer_id })
 
         return res.json(album)
     }

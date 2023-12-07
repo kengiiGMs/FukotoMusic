@@ -5,7 +5,8 @@ class DetailSingerService {
 
         const singer = await prismaClient.singer.findMany({
             select: {
-                name: true
+                name: true,
+                id: true
             }
         })
 

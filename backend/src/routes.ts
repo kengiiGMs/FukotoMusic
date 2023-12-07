@@ -6,6 +6,7 @@ import { DetailUserController } from "./controllers/user/DetailUserController";
 
 import { CreateAlbumController } from "./controllers/album/CreateAlbumController";
 import { DetailAlbumController } from "./controllers/album/DetailAlbumController";
+import { DetailAlbumSingerController } from "./controllers/album/DetailAlbumSingerController";
 
 import { CreateSingerController } from "./controllers/singer/CreateSingerController";
 import { DetailSingerController } from "./controllers/singer/DetailSingerController";
@@ -21,6 +22,8 @@ router.get('/me', isAuthenticated, new DetailUserController().handle);
 
 router.post('/album', isAuthenticated, new CreateAlbumController().handle);
 router.get('/album/get', isAuthenticated, new DetailAlbumController().handle);
+router.post('/album/singer/get', isAuthenticated, new DetailAlbumSingerController().handle);
+
 
 router.post('/singer', isAuthenticated, new CreateSingerController().handle)
 router.get('/singer/get', isAuthenticated, new DetailSingerController().handle)

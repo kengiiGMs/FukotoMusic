@@ -5,7 +5,8 @@ class DetailAlbumService {
 
         const album = await prismaClient.album.findMany({
             select: {
-                name: true
+                name: true,
+                id: true
             }
         })
 
