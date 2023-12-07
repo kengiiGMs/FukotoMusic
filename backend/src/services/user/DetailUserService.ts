@@ -1,4 +1,3 @@
-import { text } from "express";
 import prismaClient from "../../prisma";
 
 class DetailUserService {
