@@ -41,9 +41,9 @@ model Album {
 }
 
 model Playlist {
-  id     String  @id @default(uuid())
-  name   String
-  public Boolean @default(false)
+  id        String  @id @default(uuid())
+  name      String
+  is_public Boolean @default(false)
 
   user    User   @relation(fields: [user_id], references: [id])
   user_id String

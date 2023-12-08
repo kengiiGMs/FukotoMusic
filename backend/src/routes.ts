@@ -11,6 +11,11 @@ import { DetailAlbumSingerController } from "./controllers/album/DetailAlbumSing
 import { CreateSingerController } from "./controllers/singer/CreateSingerController";
 import { DetailSingerController } from "./controllers/singer/DetailSingerController";
 
+import { CreatePlaylistController } from "./controllers/playlist/CreatePlaylistController";
+import { DetailPlaylistPublicController } from "./controllers/playlist/DetailPlaylistPublicController";
+import { DetailPlaylistUserController } from "./controllers/playlist/DetailPlaylistUserController";
+import { UpdatePublicPlaylistController } from "./controllers/playlist/UpdatePublicPlaylistController";
+
 import { isAuthenticated } from "./middlewares/isAuthenticated";
 
 const router = Router();
@@ -27,6 +32,11 @@ router.post('/album/singer/get', isAuthenticated, new DetailAlbumSingerControlle
 
 router.post('/singer', isAuthenticated, new CreateSingerController().handle)
 router.get('/singer/get', isAuthenticated, new DetailSingerController().handle)
+
+router.post('/playlist', isAuthenticated, new CreatePlaylistController().handle)
+router.get('/playlist/public', new DetailPlaylistPublicController().handle)
+router.get('/playlist/user', isAuthenticated, new DetailPlaylistUserController().handle)
+router.put('/playlist/update', isAuthenticated, new UpdatePublicPlaylistController().handle)
 
 
 export { router }
