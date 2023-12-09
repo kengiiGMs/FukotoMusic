@@ -6,7 +6,7 @@ interface MusicParams {
 
 class DetailMusicAlbumService {
     async execute({ album_id }: MusicParams) {
-        const music = prismaClient.music.findMany({
+        const music = await prismaClient.music.findMany({
             where: { album_id: album_id },
             include: { album: true, singer: true }
         });

@@ -21,6 +21,9 @@ import { DetailMusicController } from "./controllers/music/DetailMusicController
 import { DetailMusicSingerController } from "./controllers/music/DetailMusicSingerController";
 import { DetailMusicAlbumController } from "./controllers/music/DetailMusicAlbumController";
 
+import { CreateMusicPlaylistController } from "./controllers/musicPlaylist/CreateMusicPlaylistController";
+import { DetailMusicPlaylistController } from "./controllers/musicPlaylist/DetailMusicPlaylistController";
+import { DeleteMusicPlaylistController } from "./controllers/musicPlaylist/DeleteMusicPlaylistController";
 import { isAuthenticated } from "./middlewares/isAuthenticated";
 
 const router = Router();
@@ -52,6 +55,8 @@ router.post('/music/singer', new DetailMusicSingerController().handle)
 router.post('/music/album', new DetailMusicAlbumController().handle)
 
 /* Routes MusicPlaylist */
-
+router.post('/musicplaylist', isAuthenticated, new CreateMusicPlaylistController().handle)
+router.post('/musicplaylist/playlist', new DetailMusicPlaylistController().handle)
+router.delete('/musicplaylist/delete', new DeleteMusicPlaylistController().handle)
 
 export { router }
