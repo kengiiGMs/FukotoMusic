@@ -16,6 +16,11 @@ import { DetailPlaylistPublicController } from "./controllers/playlist/DetailPla
 import { DetailPlaylistUserController } from "./controllers/playlist/DetailPlaylistUserController";
 import { UpdatePublicPlaylistController } from "./controllers/playlist/UpdatePublicPlaylistController";
 
+import { CreateMusicController } from "./controllers/music/CreateMusicController";
+import { DetailMusicController } from "./controllers/music/DetailMusicController";
+import { DetailMusicSingerController } from "./controllers/music/DetailMusicSingerController";
+import { DetailMusicAlbumController } from "./controllers/music/DetailMusicAlbumController";
+
 import { isAuthenticated } from "./middlewares/isAuthenticated";
 
 const router = Router();
@@ -25,18 +30,28 @@ router.post('/users', new CreateUserController().handle);
 router.post('/session', new AuthUserController().handle);
 router.get('/me', isAuthenticated, new DetailUserController().handle);
 
+/* Routes Album */
 router.post('/album', isAuthenticated, new CreateAlbumController().handle);
-router.get('/album/get', isAuthenticated, new DetailAlbumController().handle);
-router.post('/album/singer/get', isAuthenticated, new DetailAlbumSingerController().handle);
+router.get('/album', isAuthenticated, new DetailAlbumController().handle);
+router.post('/album/singer', isAuthenticated, new DetailAlbumSingerController().handle);
 
-
+/* Routes Singer */
 router.post('/singer', isAuthenticated, new CreateSingerController().handle)
-router.get('/singer/get', isAuthenticated, new DetailSingerController().handle)
+router.get('/singer', isAuthenticated, new DetailSingerController().handle)
 
+/* Routes Playlist */
 router.post('/playlist', isAuthenticated, new CreatePlaylistController().handle)
 router.get('/playlist/public', new DetailPlaylistPublicController().handle)
 router.get('/playlist/user', isAuthenticated, new DetailPlaylistUserController().handle)
 router.put('/playlist/update', isAuthenticated, new UpdatePublicPlaylistController().handle)
+
+/* Routes Music */
+router.post('/music', isAuthenticated, new CreateMusicController().handle)
+router.get('/music', new DetailMusicController().handle)
+router.post('/music/singer', new DetailMusicSingerController().handle)
+router.post('/music/album', new DetailMusicAlbumController().handle)
+
+/* Routes MusicPlaylist */
 
 
 export { router }
