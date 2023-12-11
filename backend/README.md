@@ -1,7 +1,7 @@
 # Linguagens 
 As seguintes Linguagens foram usadas na construção do projeto:
 
-- `TypeScript`
+- `Javacript`
 
 # Bibliotecas 
 As seguintes Bibliotecas foram usadas na construção do projeto:
@@ -18,3 +18,4 @@ As seguintes Bibliotecas foram usadas na construção do projeto:
 As seguintes Tecnologias foram usadas na construção do projeto:
 
 - `Yarn`
+- `TypeScript`
