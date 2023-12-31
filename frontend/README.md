@@ -8,6 +8,8 @@ As seguintes Bibliotecas foram usadas na construção do projeto:
 
 - `React`
 - `React-icons`
+- `Axios`
+- `Nookies`
     
 # Tecnologias 
 As seguintes Tecnologias foram usadas na construção do projeto:
@@ -16,3 +18,4 @@ As seguintes Tecnologias foram usadas na construção do projeto:
 - `Next.js`
 - `Typescript`
 - `SASS`
+- `Jwt-decode`
