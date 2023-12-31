@@ -15,6 +15,8 @@ import { AuthContext } from "../../contexts/AuthContext"
 
 import Link from "next/link"
 
+import { toast } from 'react-toastify'
+
 export default function SignUp() {
     const { signUp } = useContext(AuthContext)
 
@@ -29,7 +31,7 @@ export default function SignUp() {
         event.preventDefault();
 
         if (name === '' || email === '' || password === '' || confirmPassword === '') {
-            alert("Preencha Todos os Campos!")
+            toast.info("Preencha Todos os Campos !")
             return;
         }
 

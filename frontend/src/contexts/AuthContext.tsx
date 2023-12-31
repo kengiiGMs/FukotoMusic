@@ -3,6 +3,8 @@ import { destroyCookie, setCookie, parseCookies } from 'nookies'
 
 import { api } from '../services/apiClient'
 
+import { toast } from 'react-toastify'
+
 import Router from 'next/router'
 
 type AuthContextData = {
@@ -73,9 +75,14 @@ export function AuthProvider({ children }: AuthProviderProps) {
 
             api.defaults.headers['Authorization'] = `Bearer ${token}`
 
+            toast.success('Logado com Sucesso!')
+
             Router.push('/')
 
         } catch (err) {
+
+            toast.error('ERRO ao Logar!')
+
             console.log("Erro ao Logar", err)
         }
     }
@@ -90,9 +97,12 @@ export function AuthProvider({ children }: AuthProviderProps) {
                 confirmPassword
             })
 
+            toast.success("Perfil Criado com Sucesso!")
+
             Router.push('/')
 
         } catch (err) {
+            toast.error("ERRO ao Cadastrar Login!")
             console.log("Erro ao Cadastrar", err);
         }
     }

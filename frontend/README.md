@@ -10,6 +10,7 @@ As seguintes Bibliotecas foram usadas na construção do projeto:
 - `React-icons`
 - `Axios`
 - `Nookies`
+- `React-Toastify`
     
 # Tecnologias 
 As seguintes Tecnologias foram usadas na construção do projeto:
