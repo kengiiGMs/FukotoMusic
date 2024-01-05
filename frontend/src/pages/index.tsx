@@ -1,5 +1,6 @@
 
 import Head from "next/head"
+import { Header } from "@/components/Header"
 
 export default function Home() {
   return (
@@ -8,6 +9,7 @@ export default function Home() {
         <title>FukotoMusic | Home</title>
       </Head>
       <div>
+        <Header />
         <h1>Olá Mundo!</h1>
       </div>
     </>
