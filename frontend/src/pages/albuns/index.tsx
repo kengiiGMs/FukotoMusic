@@ -2,9 +2,28 @@ import Head from "next/head";
 import styles from './style.module.scss'
 import { Header } from "../../components/Header";
 
-import { canSSRAuth } from "@/utils/canSSRAuth";
+import { canSSRAuth } from "../../utils/canSSRAuth";
+import { setupAPIClient } from "../../services/api";
+import { useState } from "react";
 
-export default function Albuns() {
+type ItemProps = {
+    id: string;
+    name: string
+}
+
+interface SingerProps {
+    singerList: ItemProps[]
+}
+
+export default function Albuns({ singerList }: SingerProps) {
+
+    const [singer, setSinger] = useState(singerList || [])
+    const [singerSelected, setSingerSelected] = useState(0)
+
+    function handleChangeSinger(event) {
+        setSingerSelected(event.target.value)
+    }
+
     return (
         <>
             <Head>
@@ -18,13 +37,14 @@ export default function Albuns() {
                     <form className={styles.form}>
                         <input type="text" placeholder="Digite o nome do Album" className={styles.input} />
 
-                        <select>
-                            <option>
-                                Lisa
-                            </option>
-                            <option>
-                                Reona
-                            </option>
+                        <select value={singerSelected} onChange={handleChangeSinger}>
+                            {singer.map((item, index) => {
+                                return (
+                                    <option key={item.id} value={index}>
+                                        {item.name}
+                                    </option>
+                                )
+                            })}
                         </select>
 
 
@@ -39,7 +59,15 @@ export default function Albuns() {
 }
 
 export const getServerSideProps = canSSRAuth(async (ctx) => {
+    const apliClient = setupAPIClient(ctx);
+
+    const response = await apliClient.get('/singer')
+
+
+
     return {
-        props: {}
+        props: {
+            singerList: response.data
+        }
     }
 })
