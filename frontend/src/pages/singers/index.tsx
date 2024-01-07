@@ -3,13 +3,33 @@ import { useState, FormEvent } from 'react'
 import { Header } from "../../components/Header"
 import styles from "./styles.module.scss"
 
+import { setupAPIClient } from "../../services/api"
+import { toast } from "react-toastify"
+
+import { canSSRAuth } from "../../utils/canSSRAuth"
 
 export default function Singers() {
     const [name, setName] = useState('');
 
     async function handleRegister(event: FormEvent) {
         event.preventDefault();
-        alert(name)
+
+        if (name === "") {
+            toast.info('Preencha Todos os Campos !')
+            return
+        }
+
+        try {
+            const apiClient = setupAPIClient();
+            await apiClient.post('/singer', {
+                name: name
+            })
+
+            toast.success('Cantor Cadastrado com Sucesso')
+            setName('')
+        } catch (err) {
+            toast.error("Erro ao Cadastrar Cantor")
+        }
     }
 
     return (
@@ -33,3 +53,9 @@ export default function Singers() {
         </>
     )
 }
+
+export const getServerSideProps = canSSRAuth(async (ctx) => {
+    return {
+        props: {}
+    }
+})
