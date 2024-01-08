@@ -7,9 +7,16 @@ class CreateAlbumController {
 
         const createAlbumService = new CreateAlbumService();
 
-        const album = await createAlbumService.execute({ name, singer_id })
+        if (!req.file) {
+            throw new Error("Error Upload File")
+        } else {
+            const { filename: banner } = req.file;
 
-        return res.json(album)
+            const album = await createAlbumService.execute({ name, singer_id, banner })
+
+            return res.json(album)
+        }
+
     }
 }
 

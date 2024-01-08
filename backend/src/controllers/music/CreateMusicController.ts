@@ -11,10 +11,15 @@ class CreateMusicController {
 
         const createMusicService = new CreateMusicService();
 
-        const music = await createMusicService.execute({ name, date, singer_id, album_id });
+        if (!req.file) {
+            throw new Error("Error Upload File")
+        } else {
+            const { filename: banner } = req.file;
 
-        return res.json(music)
+            const music = await createMusicService.execute({ name, date, singer_id, album_id, banner });
 
+            return res.json(music)
+        }
     }
 }
 

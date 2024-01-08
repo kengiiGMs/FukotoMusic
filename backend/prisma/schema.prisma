@@ -15,24 +15,27 @@ model User {
   name      String
   email     String
   password  String
+  banner    String
   playlists Playlist[]
 
   @@map("users")
 }
 
 model Singer {
-  id    String  @id @default(uuid())
-  name  String
-  music Music[]
-  album Album[]
+  id     String  @id @default(uuid())
+  name   String
+  banner String
+  music  Music[]
+  album  Album[]
 
   @@map("singers")
 }
 
 model Album {
-  id    String  @id @default(uuid())
-  name  String
-  music Music[]
+  id     String  @id @default(uuid())
+  name   String
+  banner String
+  music  Music[]
 
   singer    Singer @relation(fields: [singer_id], references: [id])
   singer_id String
@@ -56,6 +59,7 @@ model Playlist {
 model Music {
   id          String   @id @default(uuid())
   name        String
+  banner      String
   releaseDate DateTime
 
   singer    Singer @relation(fields: [singer_id], references: [id])

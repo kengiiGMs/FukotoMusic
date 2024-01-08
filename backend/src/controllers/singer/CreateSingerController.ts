@@ -7,9 +7,15 @@ class CreateSingerController {
 
         const createSingerService = new CreateSingerService();
 
-        const singer = await createSingerService.execute({ name })
+        if (!req.file) {
+            throw new Error("Error Upload File")
+        } else {
+            const { filename: banner } = req.file;
 
-        return res.json(singer)
+            const singer = await createSingerService.execute({ name, banner })
+
+            return res.json(singer)
+        }
     }
 }
 

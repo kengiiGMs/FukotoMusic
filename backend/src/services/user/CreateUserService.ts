@@ -5,12 +5,13 @@ interface UserRequest {
     name: string,
     email: string,
     password: string,
-    confirmPassword: string
+    confirmPassword: string,
+    banner: string
 }
 
 
 class CreateUserService {
-    async execute({ name, email, password, confirmPassword }: UserRequest) {
+    async execute({ name, email, password, confirmPassword, banner }: UserRequest) {
 
         if (!email) {
             throw new Error("Email Incorrect")
@@ -36,7 +37,8 @@ class CreateUserService {
             data: {
                 name: name,
                 email: email,
-                password: passwordHash
+                password: passwordHash,
+                banner: banner
             },
             select: {
                 id: true,

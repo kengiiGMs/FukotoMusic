@@ -4,11 +4,12 @@ interface MusicRequest {
     name: string,
     date: Date,
     singer_id: string,
-    album_id: string
+    album_id: string,
+    banner: string
 }
 
 class CreateMusicService {
-    async execute({ name, date, singer_id, album_id }: MusicRequest) {
+    async execute({ name, date, singer_id, album_id, banner }: MusicRequest) {
         if (!name) {
             throw new Error("Name Incorrect")
         }
@@ -28,7 +29,8 @@ class CreateMusicService {
                 name: name,
                 singer_id: singer_id,
                 album_id: album_id,
-                releaseDate: date
+                releaseDate: date,
+                banner: banner
             }
         })
 

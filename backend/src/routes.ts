@@ -1,4 +1,5 @@
 import { Router } from "express";
+import multer from "multer";
 
 import { CreateUserController } from "./controllers/user/CreateUserController";
 import { AuthUserController } from "./controllers/user/AuthUserController";
@@ -26,20 +27,28 @@ import { DetailMusicPlaylistController } from "./controllers/musicPlaylist/Detai
 import { DeleteMusicPlaylistController } from "./controllers/musicPlaylist/DeleteMusicPlaylistController";
 import { isAuthenticated } from "./middlewares/isAuthenticated";
 
+import uploadConfig from './config/multer'
+
 const router = Router();
 
+const uploadUser = multer(uploadConfig.upload("userPhotos"))
+const uploadAlbum = multer(uploadConfig.upload("albumPhotos"))
+const uploadSinger = multer(uploadConfig.upload("singerPhotos"))
+const uploadMusic = multer(uploadConfig.upload("musicPhotos"))
+
+
 /* Routes User */
-router.post('/users', new CreateUserController().handle);
+router.post('/users', uploadUser.single('file'), new CreateUserController().handle);
 router.post('/session', new AuthUserController().handle);
 router.get('/me', isAuthenticated, new DetailUserController().handle);
 
 /* Routes Album */
-router.post('/album', isAuthenticated, new CreateAlbumController().handle);
+router.post('/album', isAuthenticated, uploadAlbum.single('file'), new CreateAlbumController().handle);
 router.get('/album', isAuthenticated, new DetailAlbumController().handle);
 router.post('/album/singer', isAuthenticated, new DetailAlbumSingerController().handle);
 
 /* Routes Singer */
-router.post('/singer', isAuthenticated, new CreateSingerController().handle)
+router.post('/singer', isAuthenticated, uploadSinger.single('file'), new CreateSingerController().handle)
 router.get('/singer', isAuthenticated, new DetailSingerController().handle)
 
 /* Routes Playlist */
@@ -49,7 +58,7 @@ router.get('/playlist/user', isAuthenticated, new DetailPlaylistUserController()
 router.put('/playlist/update', isAuthenticated, new UpdatePublicPlaylistController().handle)
 
 /* Routes Music */
-router.post('/music', isAuthenticated, new CreateMusicController().handle)
+router.post('/music', isAuthenticated, uploadMusic.single('file'), new CreateMusicController().handle)
 router.get('/music', new DetailMusicController().handle)
 router.post('/music/singer', new DetailMusicSingerController().handle)
 router.post('/music/album', new DetailMusicAlbumController().handle)

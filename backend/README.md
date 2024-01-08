@@ -13,6 +13,7 @@ As seguintes Bibliotecas foram usadas na construção do projeto:
 - `Bcryptjs`
 - `Jsonwebtoken`
 - `Dotenv`
+- `Multer`
     
 # Tecnologias 
 As seguintes Tecnologias foram usadas na construção do projeto:

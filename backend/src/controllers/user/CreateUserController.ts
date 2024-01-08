@@ -6,14 +6,21 @@ class CreateUserController {
         const { name, email, password, confirmPassword } = req.body;
         const createUserService = new CreateUserService();
 
-        const user = await createUserService.execute({
-            name,
-            email,
-            password,
-            confirmPassword
-        });
+        if (!req.file) {
+            throw new Error("Error Upload File")
+        } else {
+            const { filename: banner } = req.file;
 
-        return res.json(user)
+            const user = await createUserService.execute({
+                name,
+                email,
+                password,
+                confirmPassword,
+                banner,
+            });
+
+            return res.json(user)
+        }
     }
 }
 

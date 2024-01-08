@@ -2,11 +2,12 @@ import prismaClient from "../../prisma";
 
 
 interface SingerRequest {
-    name: string
+    name: string,
+    banner: string
 }
 
 class CreateSingerService {
-    async execute({ name }: SingerRequest) {
+    async execute({ name, banner }: SingerRequest) {
         if (!name) {
             throw new Error("Name Incorrect")
         }
@@ -24,6 +25,7 @@ class CreateSingerService {
         const singer = await prismaClient.singer.create({
             data: {
                 name: name,
+                banner: banner
             }
         })
 
