@@ -30,7 +30,8 @@ type SignUpProps = {
     email: string,
     name: string,
     password: string,
-    confirmPassword: string
+    confirmPassword: string,
+    imageAvatar: string
 }
 
 type AuthProviderProps = {
@@ -73,7 +74,6 @@ export function AuthProvider({ children }: AuthProviderProps) {
 
     }, [])
 
-
     async function signIn({ email, password }: SignInProps) {
         try {
             const response = await api.post('/session', {
@@ -108,15 +108,16 @@ export function AuthProvider({ children }: AuthProviderProps) {
         }
     }
 
-    async function signUp({ name, email, password, confirmPassword }: SignUpProps) {
+    async function signUp({ name, email, password, confirmPassword, imageAvatar }: SignUpProps) {
         try {
+            const data = new FormData();
+            data.append('name', name);
+            data.append('email', email);
+            data.append('password', password);
+            data.append('confirmPassword', confirmPassword);
+            data.append('file', imageAvatar);
 
-            const response = await api.post('/users', {
-                name,
-                email,
-                password,
-                confirmPassword
-            })
+            const response = await api.post('/users', data)
 
             toast.success("Perfil Criado com Sucesso!")
 

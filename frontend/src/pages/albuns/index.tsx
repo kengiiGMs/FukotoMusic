@@ -4,8 +4,10 @@ import { Header } from "../../components/Header";
 
 import { canSSRAuth } from "../../utils/canSSRAuth";
 import { setupAPIClient } from "../../services/api";
-import { useState, FormEvent } from "react";
+import { useState, FormEvent, ChangeEvent } from "react";
 import { toast } from "react-toastify";
+
+import { FiUpload } from "react-icons/fi";
 
 type ItemProps = {
     id: string;
@@ -21,6 +23,8 @@ export default function Albuns({ singerList }: SingerProps) {
     const [singer, setSinger] = useState(singerList || [])
     const [singerSelected, setSingerSelected] = useState(0)
     const [name, setName] = useState('');
+    const [avatarUrl, setAvatarUrl] = useState('');
+    const [imageAvatar, setImageAvatar] = useState(null);
 
     function handleChangeSinger(event) {
         setSingerSelected(event.target.value)
@@ -35,17 +39,40 @@ export default function Albuns({ singerList }: SingerProps) {
         }
 
         try {
+            const data = new FormData();
+            data.append('name', name);
+            data.append('file', imageAvatar);
+            data.append('singer_id', singer[singerSelected].id);
+
             const apiClient = setupAPIClient();
-            await apiClient.post('/album', {
-                name: name,
-                singer_id: singer[singerSelected].id
-            })
+            await apiClient.post('/album', data)
 
             toast.success('Album Cadastrado com Sucesso')
             setName('')
             setSingerSelected(0)
+            setAvatarUrl('');
+            setImageAvatar(null);
         } catch (err) {
             toast.error("Erro ao Cadastrar Album !")
+        }
+    }
+
+    function handleFile(e: ChangeEvent<HTMLInputElement>) {
+        if (!e.target.files) {
+            toast.error("Erro Insira a Imagem !")
+            return;
+        }
+
+        const image = e.target.files[0];
+
+        if (!image) {
+            toast.error("Erro Formato de Imagem Invalida !")
+            return;
+        }
+
+        if (image.type === 'image.jpeg' || image.type === 'image/png') {
+            setImageAvatar(image);
+            setAvatarUrl(URL.createObjectURL(e.target.files[0]))
         }
     }
 
@@ -72,6 +99,16 @@ export default function Albuns({ singerList }: SingerProps) {
                             })}
                         </select>
 
+                        <label className={styles.labelAvatar}>
+                            <span>
+                                <FiUpload size={25} color="#fff" />
+                            </span>
+                            <input type="file" accept="image/png, image/jpeg" onChange={handleFile} />
+
+                            {avatarUrl && (
+                                <img src={avatarUrl} alt="Foto do Pefil" width={250} height={250} className={styles.preview} />
+                            )}
+                        </label>
 
                         <button type="submit" className={styles.buttonAdd}>
                             Cadastrar
@@ -87,8 +124,6 @@ export const getServerSideProps = canSSRAuth(async (ctx) => {
     const apliClient = setupAPIClient(ctx);
 
     const response = await apliClient.get('/singer')
-
-
 
     return {
         props: {
