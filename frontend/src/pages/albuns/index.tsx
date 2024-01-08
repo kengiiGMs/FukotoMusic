@@ -4,7 +4,8 @@ import { Header } from "../../components/Header";
 
 import { canSSRAuth } from "../../utils/canSSRAuth";
 import { setupAPIClient } from "../../services/api";
-import { useState } from "react";
+import { useState, FormEvent } from "react";
+import { toast } from "react-toastify";
 
 type ItemProps = {
     id: string;
@@ -19,9 +20,33 @@ export default function Albuns({ singerList }: SingerProps) {
 
     const [singer, setSinger] = useState(singerList || [])
     const [singerSelected, setSingerSelected] = useState(0)
+    const [name, setName] = useState('');
 
     function handleChangeSinger(event) {
         setSingerSelected(event.target.value)
+    }
+
+    async function handleRegister(event: FormEvent) {
+        event.preventDefault();
+
+        if (name === "") {
+            toast.info('Preencha Todos os Campos !')
+            return
+        }
+
+        try {
+            const apiClient = setupAPIClient();
+            await apiClient.post('/album', {
+                name: name,
+                singer_id: singer[singerSelected].id
+            })
+
+            toast.success('Album Cadastrado com Sucesso')
+            setName('')
+            setSingerSelected(0)
+        } catch (err) {
+            toast.error("Erro ao Cadastrar Album !")
+        }
     }
 
     return (
@@ -34,8 +59,8 @@ export default function Albuns({ singerList }: SingerProps) {
                 <main className={styles.container}>
                     <h1>Cadastrar Albuns</h1>
 
-                    <form className={styles.form}>
-                        <input type="text" placeholder="Digite o nome do Album" className={styles.input} />
+                    <form className={styles.form} onSubmit={handleRegister}>
+                        <input type="text" placeholder="Digite o nome do Album" className={styles.input} value={name} onChange={(e) => setName(e.target.value)} />
 
                         <select value={singerSelected} onChange={handleChangeSinger}>
                             {singer.map((item, index) => {
