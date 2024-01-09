@@ -28,13 +28,15 @@ import { DeleteMusicPlaylistController } from "./controllers/musicPlaylist/Delet
 import { isAuthenticated } from "./middlewares/isAuthenticated";
 
 import uploadConfig from './config/multer'
+import uploadConfigMp3 from './config/multermp3'
+
 
 const router = Router();
 
 const uploadUser = multer(uploadConfig.upload("userPhotos"))
 const uploadAlbum = multer(uploadConfig.upload("albumPhotos"))
 const uploadSinger = multer(uploadConfig.upload("singerPhotos"))
-const uploadMusic = multer(uploadConfig.upload("musicPhotos"))
+const uploadMusic = multer(uploadConfigMp3.upload("musicPhotos"))
 
 
 /* Routes User */
@@ -58,7 +60,7 @@ router.get('/playlist/user', isAuthenticated, new DetailPlaylistUserController()
 router.put('/playlist/update', isAuthenticated, new UpdatePublicPlaylistController().handle)
 
 /* Routes Music */
-router.post('/music', isAuthenticated, uploadMusic.single('file'), new CreateMusicController().handle)
+router.post('/music', isAuthenticated, uploadMusic.fields([{ name: 'file', maxCount: 1 }, { name: 'mp3', maxCount: 1 }]), new CreateMusicController().handle)
 router.get('/music', new DetailMusicController().handle)
 router.post('/music/singer', new DetailMusicSingerController().handle)
 router.post('/music/album', new DetailMusicAlbumController().handle)
