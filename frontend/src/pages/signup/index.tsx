@@ -84,7 +84,6 @@ export default function SignUp() {
                 <Image src={logoImg} alt="Logo FukotoMusic" className={styles.logoImg} width={230} />
                 <div className={styles.login}>
                     <form onSubmit={handleSignUp}>
-
                         <Input placeholder="Digite o Seu Nome" type="text" value={name} onChange={(e) => setName(e.target.value)} />
                         <Input placeholder="Digite o Seu Email" type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
                         <Input placeholder="Digite a Sua Senha" type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
@@ -103,7 +102,7 @@ export default function SignUp() {
                             Cadastrar
                         </Button>
                     </form>
-                    <Link href="/signin" legacyBehavior>
+                    <Link href="/" legacyBehavior>
                         <a className={styles.text}>Já Possuí uma Conta? Faça Login</a>
                     </Link>
                 </div>

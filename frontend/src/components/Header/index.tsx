@@ -18,9 +18,6 @@ export function Header() {
                 </Link>
 
                 <nav className={styles.menuNav}>
-                    <Link href="/playlists" legacyBehavior>
-                        <a >Playlists</a>
-                    </Link>
                     <Link href="/musics" legacyBehavior>
                         <a >Músicas</a>
                     </Link>
