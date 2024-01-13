@@ -5,7 +5,7 @@ import { Header } from "../../components/Header";
 import { canSSRAuth } from "@/utils/canSSRAuth"
 
 
-export default function SignIn() {
+export default function Home() {
 
 
     return (

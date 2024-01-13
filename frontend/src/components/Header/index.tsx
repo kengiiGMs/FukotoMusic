@@ -24,9 +24,7 @@ export function Header() {
                     <Link href="/singers" legacyBehavior>
                         <a >Cantores</a>
                     </Link>
-                    <Link href="/albuns" legacyBehavior>
-                        <a >Albuns</a>
-                    </Link>
+
 
                     <Link href="/myaccount" legacyBehavior>
                         <a >Minha Conta</a>

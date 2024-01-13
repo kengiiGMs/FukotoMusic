@@ -14,16 +14,16 @@ type ItemProps = {
     name: string
 }
 
-interface AlbumProps {
-    albumList: ItemProps[]
+interface SingerProps {
+    singerList: ItemProps[]
 }
 
-export default function Albuns({ albumList }: AlbumProps) {
+export default function Musics({ singerList }: SingerProps) {
 
-    const [album, setAlbum] = useState(albumList || [])
-    const [albumSelected, setAlbumSelected] = useState(0)
+    const [singer, setSinger] = useState(singerList || [])
+    const [singerSelected, setSingerSelected] = useState(0)
     const [name, setName] = useState('');
-    const [date, setDate] = useState('');
+
     const [avatarUrl, setAvatarUrl] = useState('');
     const [imageAvatar, setImageAvatar] = useState(null);
     const [musicUrl, setMusicUrl] = useState('');
@@ -31,13 +31,13 @@ export default function Albuns({ albumList }: AlbumProps) {
 
 
     function handleChangeAlbum(event) {
-        setAlbumSelected(event.target.value)
+        setSingerSelected(event.target.value)
     }
 
     async function handleRegister(event: FormEvent) {
         event.preventDefault();
 
-        if (name === "" || date === "") {
+        if (name === "") {
             toast.info('Preencha Todos os Campos !')
             return
         }
@@ -46,17 +46,15 @@ export default function Albuns({ albumList }: AlbumProps) {
             const data = new FormData();
             data.append('name', name);
             data.append('file', imageAvatar);
-            data.append('album_id', album[albumSelected].id);
+            data.append('singer_id', singer[singerSelected].id);
             data.append('mp3', musicAvatar);
-            data.append('releaseDate', date)
-
 
             const apiClient = setupAPIClient();
             await apiClient.post('/music', data)
 
-            toast.success('Música Cadastrada com Sucesso')
-            setName('')
-            setAlbumSelected(0)
+            toast.success('Música Cadastrada com Sucesso');
+            setName('');
+            setSingerSelected(0);
             setAvatarUrl('');
             setImageAvatar(null);
             setMusicAvatar(null);
@@ -119,8 +117,8 @@ export default function Albuns({ albumList }: AlbumProps) {
                     <form className={styles.form} onSubmit={handleRegister}>
                         <input type="text" placeholder="Digite o nome da Música" className={styles.input} value={name} onChange={(e) => setName(e.target.value)} />
 
-                        <select value={albumSelected} onChange={handleChangeAlbum}>
-                            {album.map((item, index) => {
+                        <select value={singerSelected} onChange={handleChangeAlbum}>
+                            {singer.map((item, index) => {
                                 return (
                                     <option key={item.id} value={index}>
                                         {item.name}
@@ -141,7 +139,6 @@ export default function Albuns({ albumList }: AlbumProps) {
 
                         </label>
 
-                        <input type="date" value={date} onChange={(e) => setDate(e.target.value)} className={styles.input} />
 
                         <label className={styles.labelMusic}>
                             {musicUrl ? null : <p className={styles.textInputMusic}>Insira o Arquivo da Música</p>}
@@ -168,11 +165,11 @@ export default function Albuns({ albumList }: AlbumProps) {
 export const getServerSideProps = canSSRAuth(async (ctx) => {
     const apliClient = setupAPIClient(ctx);
 
-    const response = await apliClient.get('/album')
+    const response = await apliClient.get('/singer')
 
     return {
         props: {
-            albumList: response.data
+            singerList: response.data
         }
     }
 })

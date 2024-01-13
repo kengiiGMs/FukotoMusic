@@ -14,7 +14,6 @@ app.use(router);
 app.use('/files/user', express.static(path.resolve(__dirname, '..', 'tmp', 'userPhotos')))
 app.use('/files/singer', express.static(path.resolve(__dirname, '..', 'tmp', 'singerPhotos')))
 app.use('/files/music', express.static(path.resolve(__dirname, '..', 'tmp', 'musicPhotos')))
-app.use('/files/album', express.static(path.resolve(__dirname, '..', 'tmp', 'albumPhotos')))
 app.use('/files/music/play', express.static(path.resolve(__dirname, '..', 'tmp', 'musicTmp')))
 
 

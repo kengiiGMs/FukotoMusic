@@ -26,21 +26,8 @@ model Singer {
   name   String
   banner String
   music  Music[]
-  album  Album[]
 
   @@map("singers")
-}
-
-model Album {
-  id     String  @id @default(uuid())
-  name   String
-  banner String
-  music  Music[]
-
-  singer    Singer @relation(fields: [singer_id], references: [id])
-  singer_id String
-
-  @@map("albums")
 }
 
 model Playlist {
@@ -57,16 +44,13 @@ model Playlist {
 }
 
 model Music {
-  id          String   @id @default(uuid())
-  name        String
-  banner      String
-  releaseDate DateTime
+  id     String @id @default(uuid())
+  name   String
+  banner String
+  mp3    String
 
   singer    Singer @relation(fields: [singer_id], references: [id])
   singer_id String
-
-  album    Album?  @relation(fields: [album_id], references: [id])
-  album_id String?
 
   musicPlaylist MusicPlaylist[]
 

@@ -2,14 +2,13 @@ import prismaClient from "../../prisma";
 
 interface MusicRequest {
     name: string,
-    date: Date,
     mp3: string,
-    album_id: string,
+    singer_id: string,
     banner: string
 }
 
 class CreateMusicService {
-    async execute({ name, date, mp3, album_id, banner }: MusicRequest) {
+    async execute({ name, mp3, singer_id, banner }: MusicRequest) {
         if (!name) {
             throw new Error("Name Incorrect")
         }
@@ -28,8 +27,7 @@ class CreateMusicService {
             data: {
                 name: name,
                 mp3: mp3,
-                album_id: album_id,
-                releaseDate: date,
+                singer_id: singer_id,
                 banner: banner
             }
         })

@@ -3,11 +3,7 @@ import { CreateMusicService } from "../../services/music/CreateMusicService";
 
 class CreateMusicController {
     async handle(req: Request, res: Response) {
-        const { name, releaseDate, album_id } = req.body;
-
-        const dateFormat = releaseDate + "T00:00:00.000Z";
-
-        const date = new Date(dateFormat);
+        const { name, singer_id } = req.body;
 
         const createMusicService = new CreateMusicService();
 
@@ -22,7 +18,7 @@ class CreateMusicController {
             const banner = getBanner.filename;
             const mp3 = getMp3.filename;
 
-            const music = await createMusicService.execute({ name, date, mp3, album_id, banner });
+            const music = await createMusicService.execute({ name, mp3, singer_id, banner });
 
             return res.json(music)
         }
