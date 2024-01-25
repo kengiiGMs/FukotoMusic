@@ -5,6 +5,7 @@ import { CreateUserController } from "./controllers/user/CreateUserController";
 import { AuthUserController } from "./controllers/user/AuthUserController";
 import { DetailUserController } from "./controllers/user/DetailUserController";
 import { AlterPasswordUserController } from "./controllers/user/AlterPasswordUserController";
+import { AlterUserController } from "./controllers/user/AlterUserController";
 
 import { CreateSingerController } from "./controllers/singer/CreateSingerController";
 import { DetailSingerController } from "./controllers/singer/DetailSingerController";
@@ -37,8 +38,8 @@ const uploadMusic = multer(uploadConfigMp3.upload("musicPhotos"))
 router.post('/users', uploadUser.single('file'), new CreateUserController().handle);
 router.post('/session', new AuthUserController().handle);
 router.get('/me', isAuthenticated, new DetailUserController().handle);
-router.post('/me/alterPassword', isAuthenticated, new AlterPasswordUserController().handle);
-
+router.put('/me/alterPassword', isAuthenticated, new AlterPasswordUserController().handle);
+router.put('/me/alterUser', uploadUser.single('file'), isAuthenticated, new AlterUserController().handle);
 
 /* Routes Singer */
 router.post('/singer', isAuthenticated, uploadSinger.single('file'), new CreateSingerController().handle)
