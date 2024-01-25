@@ -4,6 +4,7 @@ import multer from "multer";
 import { CreateUserController } from "./controllers/user/CreateUserController";
 import { AuthUserController } from "./controllers/user/AuthUserController";
 import { DetailUserController } from "./controllers/user/DetailUserController";
+import { AlterPasswordUserController } from "./controllers/user/AlterPasswordUserController";
 
 import { CreateSingerController } from "./controllers/singer/CreateSingerController";
 import { DetailSingerController } from "./controllers/singer/DetailSingerController";
@@ -28,7 +29,6 @@ import uploadConfigMp3 from './config/multermp3'
 const router = Router();
 
 const uploadUser = multer(uploadConfig.upload("userPhotos"))
-const uploadAlbum = multer(uploadConfig.upload("albumPhotos"))
 const uploadSinger = multer(uploadConfig.upload("singerPhotos"))
 const uploadMusic = multer(uploadConfigMp3.upload("musicPhotos"))
 
@@ -37,6 +37,7 @@ const uploadMusic = multer(uploadConfigMp3.upload("musicPhotos"))
 router.post('/users', uploadUser.single('file'), new CreateUserController().handle);
 router.post('/session', new AuthUserController().handle);
 router.get('/me', isAuthenticated, new DetailUserController().handle);
+router.post('/me/alterPassword', isAuthenticated, new AlterPasswordUserController().handle);
 
 
 /* Routes Singer */
