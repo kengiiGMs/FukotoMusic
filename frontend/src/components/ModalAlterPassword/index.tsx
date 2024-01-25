@@ -2,6 +2,8 @@ import Modal from 'react-modal';
 import styles from './style.module.scss';
 import { useState, FormEvent } from 'react';
 
+import { setupAPIClient } from '@/services/api';
+
 import { Input } from '../ui/input';
 import { Button } from "../ui/button"
 
@@ -17,7 +19,7 @@ interface ModalAlterPasswordProps {
 export function ModalAlterPassword({ isOpen, onRequestClose }: ModalAlterPasswordProps) {
 
     const [password, setPassword] = useState('');
-    const [passwordConfirmed, setPasswordConfirmed] = useState('');
+    const [confirmPassword, setConfirmPassword] = useState('');
     const [loading, setLoading] = useState(false);
 
 
@@ -36,19 +38,27 @@ export function ModalAlterPassword({ isOpen, onRequestClose }: ModalAlterPasswor
     async function handleLogin(event: FormEvent) {
         event.preventDefault();
 
-        if (password === '' || passwordConfirmed === '') {
+        if (password === '' || confirmPassword === '') {
             toast.info("Preencha Todos os Campos !")
             return
         }
 
-        if (password != passwordConfirmed) {
+        if (password != confirmPassword) {
             toast.error("As Senhas não são Iguais !")
             return
         }
 
+        let data = {
+            password: password,
+            confirmPassword: confirmPassword
+        }
+
         setLoading(true)
-        alert(password)
+        const apiClient = setupAPIClient();
+        await apiClient.post('/me/alterPassword', data);
+
         setLoading(false)
+        toast.success("Senha Alterada com Sucesso !")
 
     }
 
@@ -60,7 +70,7 @@ export function ModalAlterPassword({ isOpen, onRequestClose }: ModalAlterPasswor
             </button>
             <form onSubmit={handleLogin}>
                 <Input placeholder="Digite a Sua Senha" type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
-                <Input placeholder="Confirme a Sua Senha" type="password" value={passwordConfirmed} onChange={(e) => setPasswordConfirmed(e.target.value)} />
+                <Input placeholder="Confirme a Sua Senha" type="password" value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} />
                 <Button type="submit" loading={loading}>
                     Acessar
                 </Button>
