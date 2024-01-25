@@ -67,7 +67,7 @@ export default function SignUp() {
             return;
         }
 
-        if (image.type === 'image.jpeg' || image.type === 'image/png') {
+        if (image.type === 'image/jpeg' || image.type === 'image/png' || image.type === 'image/jpg') {
             setImageAvatar(image);
             setAvatarUrl(URL.createObjectURL(e.target.files[0]))
         }

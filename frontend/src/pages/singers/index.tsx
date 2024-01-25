@@ -10,10 +10,21 @@ import { canSSRAuth } from "../../utils/canSSRAuth"
 
 import { FiUpload } from "react-icons/fi";
 
-export default function Singers() {
+type SingerProps = {
+    id: string;
+    name: string;
+    banner: string;
+}
+
+interface SingersProps {
+    singer: SingerProps[];
+}
+
+export default function Singers({ singer }: SingersProps) {
     const [name, setName] = useState('');
     const [avatarUrl, setAvatarUrl] = useState('');
     const [imageAvatar, setImageAvatar] = useState(null);
+    const [singerList, setSingerList] = useState(singer || []);
 
 
     async function handleRegister(event: FormEvent) {
@@ -53,7 +64,7 @@ export default function Singers() {
             return;
         }
 
-        if (image.type === 'image.jpeg' || image.type === 'image/png') {
+        if (image.type === 'image/jpeg' || image.type === 'image/png' || image.type === 'image/jpg') {
             setImageAvatar(image);
             setAvatarUrl(URL.createObjectURL(e.target.files[0]))
         }
@@ -86,6 +97,22 @@ export default function Singers() {
                             Cadastrar
                         </button>
                     </form>
+
+                    <h2>Cantores Cadastrados</h2>
+                    <div className={styles.grid}>
+                        {singerList.length > 0 ? (
+                            singerList.map(item => (
+                                <div className={styles.containerSinger} key={item.id}>
+                                    <h2>{item.name}</h2>
+                                    <div className={styles.containerBanner}>
+                                        <img src={`http://localhost:3333/files/singer/${item.banner}`} alt="Foto Cantor" />
+                                    </div>
+                                </div>
+                            ))
+                        ) : (
+                            <p>Nenhum Cantor Cadastrado...</p>
+                        )}
+                    </div>
                 </main>
             </div>
         </>
@@ -93,7 +120,12 @@ export default function Singers() {
 }
 
 export const getServerSideProps = canSSRAuth(async (ctx) => {
+    const apiClient = setupAPIClient(ctx);
+
+    const response = await apiClient.get('/singer');
     return {
-        props: {}
+        props: {
+            singer: response.data
+        }
     }
 })
