@@ -2,10 +2,7 @@ import Modal from 'react-modal';
 import styles from './style.module.scss';
 import { useState, FormEvent } from 'react';
 
-import { setupAPIClient } from '@/services/api';
-
-import { Input } from '../ui/input';
-import { Button } from "../ui/button"
+import { setupAPIClient } from '../../services/api';
 
 import { FiX } from 'react-icons/fi';
 
@@ -20,8 +17,6 @@ export function ModalAlterPassword({ isOpen, onRequestClose }: ModalAlterPasswor
 
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
-    const [loading, setLoading] = useState(false);
-
 
     const customStyles = {
         content: {
@@ -31,7 +26,7 @@ export function ModalAlterPassword({ isOpen, onRequestClose }: ModalAlterPasswor
             right: 'auto',
             padding: '30px',
             transform: 'translate(-50%,-50%)',
-            backgroundColor: '#1d1d2e'
+            backgroundColor: 'whitesmoke'
         }
     }
 
@@ -53,13 +48,13 @@ export function ModalAlterPassword({ isOpen, onRequestClose }: ModalAlterPasswor
             confirmPassword: confirmPassword
         }
 
-        setLoading(true)
         const apiClient = setupAPIClient();
         await apiClient.post('/me/alterPassword', data);
 
-        setLoading(false)
         toast.success("Senha Alterada com Sucesso !")
-
+        setPassword('');
+        setConfirmPassword('');
+        onRequestClose();
     }
 
     return (
@@ -68,12 +63,13 @@ export function ModalAlterPassword({ isOpen, onRequestClose }: ModalAlterPasswor
                 type='button' onClick={onRequestClose} className='react-modal-close' style={{ background: 'transparent', border: 0 }}>
                 <FiX size={45} color="red" />
             </button>
-            <form onSubmit={handleLogin}>
-                <Input placeholder="Digite a Sua Senha" type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
-                <Input placeholder="Confirme a Sua Senha" type="password" value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} />
-                <Button type="submit" loading={loading}>
+            <form onSubmit={handleLogin} className={styles.containerForm}>
+                <h2>Alterar Senha</h2>
+                <input placeholder="Digite a sua Nova Senha" type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
+                <input placeholder="Confirme a sua Nova Senha" type="password" value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} />
+                <button type="submit">
                     Acessar
-                </Button>
+                </button>
             </form>
 
         </Modal>
