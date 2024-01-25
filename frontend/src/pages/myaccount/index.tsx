@@ -5,6 +5,9 @@ import { useState } from "react";
 
 import { Header } from "../../components/Header";
 import styles from './style.module.scss'
+import Modal from 'react-modal';
+
+import { ModalAlterPassword } from "../../components/ModalAlterPassword";
 
 import { setupAPIClient } from "../../services/api";
 
@@ -23,14 +26,28 @@ interface ItemProps {
 }
 
 
-
 export default function MyAccount({ userDetails }: ItemProps) {
 
-    const [userDetail, setUserDetail] = useState(userDetails)
+    const [userDetail, setUserDetail] = useState(userDetails);
+
+    const [modalItem, setModalItem] = useState();
+    const [modalVisible, setModalVisible] = useState(false);
+
+    async function handleOpenModal() {
+        setModalVisible(true);
+    }
+
+    async function handleCloseModal() {
+        setModalVisible(false);
+
+    }
 
     const { user } = useContext(AuthContext)
 
     const linkBanner = "http://localhost:3333/files/user/" + userDetail.banner;
+
+    Modal.setAppElement('#__next');
+
     return (
         < >
             <Head>
@@ -50,11 +67,15 @@ export default function MyAccount({ userDetails }: ItemProps) {
                 </div>
 
                 <div className={styles.containerButton}>
-                    <button className={styles.buttonSubmit}>
+                    <button className={styles.buttonSubmit} onClick={() => handleOpenModal()}>
                         Alterar Senha
                     </button>
                 </div>
             </div>
+
+            {modalVisible && (
+                <ModalAlterPassword isOpen={modalVisible} onRequestClose={handleCloseModal} />
+            )}
         </>
     )
 }
@@ -64,8 +85,6 @@ export const getServerSideProps = canSSRAuth(async (ctx) => {
     const apliClient = setupAPIClient(ctx);
 
     const response = await apliClient.get('/me')
-
-    console.log('Dados da API:', response.data);
 
     return {
         props: {

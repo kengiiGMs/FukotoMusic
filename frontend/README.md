@@ -11,6 +11,7 @@ As seguintes Bibliotecas foram usadas na construção do projeto:
 - `Axios`
 - `Nookies`
 - `React-Toastify`
+- `React-Modal`
 
 # Tecnologias 
 As seguintes Tecnologias foram usadas na construção do projeto:
