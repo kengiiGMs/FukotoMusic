@@ -8,6 +8,7 @@ import styles from './style.module.scss'
 import Modal from 'react-modal';
 
 import { ModalAlterPassword } from "../../components/ModalAlterPassword";
+import { ModalAlterProfile } from "../../components/ModalAlterProfile";
 
 import { setupAPIClient } from "../../services/api";
 
@@ -25,22 +26,46 @@ interface ItemProps {
     userDetails: UserProps
 }
 
+export type UserDestailsProps = {
+    name: string,
+    email: string,
+}
+
 
 export default function MyAccount({ userDetails }: ItemProps) {
 
     const [userDetail, setUserDetail] = useState(userDetails);
 
-    const [modalItem, setModalItem] = useState();
-    const [modalVisible, setModalVisible] = useState(false);
+    const [modalVisiblePass, setModalVisiblePass] = useState(false);
 
-    async function handleOpenModal() {
-        setModalVisible(true);
+    const [modalVisibleProf, setModalVisibleProf] = useState(false);
+
+    const [modalItem, setModalItem] = useState<UserDestailsProps>();
+
+    async function handleOpenModalPass() {
+        setModalVisiblePass(true);
     }
 
-    async function handleCloseModal() {
-        setModalVisible(false);
-
+    async function handleCloseModalPass() {
+        setModalVisiblePass(false);
     }
+
+    async function handleOpenModalProf() {
+
+        const apiClient = setupAPIClient();
+
+        const response = await apiClient.get('/me')
+
+        setModalItem(response.data);
+
+        setModalVisibleProf(true);
+    }
+
+    async function handleCloseModalProf() {
+        setModalVisibleProf(false);
+    }
+
+
 
     const { user } = useContext(AuthContext)
 
@@ -61,21 +86,29 @@ export default function MyAccount({ userDetails }: ItemProps) {
                 <h2>Email: {user?.email}</h2>
 
                 <div className={styles.containerButton}>
-                    <button className={styles.buttonSubmit}>
+                    <button className={styles.buttonSubmit} onClick={() => handleOpenModalProf()}>
                         Editar Informações
                     </button>
                 </div>
 
                 <div className={styles.containerButton}>
-                    <button className={styles.buttonSubmit} onClick={() => handleOpenModal()}>
+                    <button className={styles.buttonSubmit} onClick={() => handleOpenModalPass()}>
                         Alterar Senha
                     </button>
                 </div>
-            </div>
+            </div >
 
-            {modalVisible && (
-                <ModalAlterPassword isOpen={modalVisible} onRequestClose={handleCloseModal} />
-            )}
+            {modalVisiblePass && (
+                <ModalAlterPassword isOpen={modalVisiblePass} onRequestClose={handleCloseModalPass} />
+            )
+            }
+
+            {modalVisibleProf && (
+                <ModalAlterProfile isOpen={modalVisibleProf} onRequestClose={handleCloseModalProf} user={modalItem} />
+            )
+            }
+
+
         </>
     )
 }

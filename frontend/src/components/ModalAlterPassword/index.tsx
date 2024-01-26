@@ -30,7 +30,7 @@ export function ModalAlterPassword({ isOpen, onRequestClose }: ModalAlterPasswor
         }
     }
 
-    async function handleLogin(event: FormEvent) {
+    async function handleAlterPassword(event: FormEvent) {
         event.preventDefault();
 
         if (password === '' || confirmPassword === '') {
@@ -49,7 +49,7 @@ export function ModalAlterPassword({ isOpen, onRequestClose }: ModalAlterPasswor
         }
 
         const apiClient = setupAPIClient();
-        await apiClient.post('/me/alterPassword', data);
+        await apiClient.put('/me/alterPassword', data);
 
         toast.success("Senha Alterada com Sucesso !")
         setPassword('');
@@ -63,7 +63,7 @@ export function ModalAlterPassword({ isOpen, onRequestClose }: ModalAlterPasswor
                 type='button' onClick={onRequestClose} className='react-modal-close' style={{ background: 'transparent', border: 0 }}>
                 <FiX size={45} color="red" />
             </button>
-            <form onSubmit={handleLogin} className={styles.containerForm}>
+            <form onSubmit={handleAlterPassword} className={styles.containerForm}>
                 <h2>Alterar Senha</h2>
                 <input placeholder="Digite a sua Nova Senha" type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
                 <input placeholder="Confirme a sua Nova Senha" type="password" value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} />
